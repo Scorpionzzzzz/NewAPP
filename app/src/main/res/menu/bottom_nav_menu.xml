@@ -1,0 +1,25 @@
+<!-- res/menu/bottom_nav_menu.xml -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home" />
+
+    <item
+        android:id="@+id/menu_health"
+        android:title="Sức Khỏe"
+        android:icon="@drawable/ic_health" />
+
+    <item
+        android:id="@+id/menu_recipes"
+        android:title="Công Thức Nấu Ăn"
+        android:icon="@drawable/ic_recipes" />
+
+    <item
+        android:id="@+id/menu_reminder"
+        android:title="Nhắc Nhở"
+        android:icon="@drawable/ic_reminder" />
+
+</menu>
