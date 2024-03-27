@@ -14,7 +14,7 @@
         android:supportsRtl="true">
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,20 +23,21 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="true">
             <!-- MainActivity không nên có intent-filter -->
         </activity>
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Activity.ProfileActivity"
             android:exported="true"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".DietPlanActivity"
+            android:name=".Activity.DietPlanActivity"
             android:exported="true"/>
         <activity
-            android:name=".RegisterActivity" />
-
+            android:name=".Activity.RegisterActivity" />
+        <activity
+            android:name=".Activity.ChiTietThucAnActivity"/>
     </application>
 
 </manifest>

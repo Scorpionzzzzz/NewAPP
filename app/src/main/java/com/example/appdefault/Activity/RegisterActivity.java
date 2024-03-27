@@ -1,5 +1,5 @@
 // RegisterActivity.java
-package com.example.appdefault;
+package com.example.appdefault.Activity;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appdefault.Database.DBHelper;
+import com.example.appdefault.R;
 
 public class RegisterActivity extends AppCompatActivity {
 

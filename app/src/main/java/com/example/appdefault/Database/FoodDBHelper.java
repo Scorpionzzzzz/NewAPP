@@ -9,7 +9,6 @@ import com.example.appdefault.FoodAdapter.FoodItem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class FoodDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "nutrition_database.db";
@@ -102,6 +101,33 @@ public class FoodDBHelper extends SQLiteOpenHelper {
 
         return searchResults;
     }
+    public List<FoodItem> getAllFoodItems(String query) {
+        List<FoodItem> foodItems = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int foodId = cursor.getInt(cursor.getColumnIndex(COLUMN_FOOD_ID));
+                String foodName = cursor.getString(cursor.getColumnIndex(COLUMN_FOOD_NAME));
+                // Lấy các trường dữ liệu khác của món ăn tương ứng
+                double protein = cursor.getDouble(cursor.getColumnIndex(COLUMN_PROTEIN));
+                double carbohydrates = cursor.getDouble(cursor.getColumnIndex(COLUMN_CARBOHYDRATES));
+                double fat = cursor.getDouble(cursor.getColumnIndex(COLUMN_FAT));
+                double vitaminC = cursor.getDouble(cursor.getColumnIndex(COLUMN_VITAMIN_C));
+                double calcium = cursor.getDouble(cursor.getColumnIndex(COLUMN_CALCIUM));
+                int calories = cursor.getInt(cursor.getColumnIndex(COLUMN_CALORIES));
+                // Tạo một đối tượng FoodItem mới
+                FoodItem foodItem = new FoodItem(foodId, foodName, protein, carbohydrates, fat, vitaminC, calcium, calories);
+                // Thêm đối tượng FoodItem vào danh sách
+                foodItems.add(foodItem);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        db.close();
+        return foodItems;
+    }
+
+
 
 
 }

@@ -1,4 +1,4 @@
-package com.example.appdefault;
+package com.example.appdefault.Activity;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appdefault.Database.DBHelper;
+import com.example.appdefault.R;
 
 public class LoginActivity extends AppCompatActivity {
 

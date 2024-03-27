@@ -8,18 +8,13 @@
         android:icon="@drawable/ic_home" />
 
     <item
-        android:id="@+id/menu_health"
-        android:title="Sức Khỏe"
-        android:icon="@drawable/ic_health" />
-
-    <item
-        android:id="@+id/menu_recipes"
-        android:title="Công Thức Nấu Ăn"
+        android:id="@+id/menu_thuc_an"
+        android:title="Thức Ăn"
         android:icon="@drawable/ic_recipes" />
 
     <item
-        android:id="@+id/menu_reminder"
-        android:title="Nhắc Nhở"
+        android:id="@+id/menu_ca_nhan"
+        android:title="Cá Nhân"
         android:icon="@drawable/ic_reminder" />
 
 </menu>

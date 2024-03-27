@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_bua_sang"
+        android:title="Bữa Sáng" />
+    <item
+        android:id="@+id/menu_bua_trua"
+        android:title="Bữa Trưa" />
+    <item
+        android:id="@+id/menu_bua_toi"
+        android:title="Bữa Tối" />
+</menu>

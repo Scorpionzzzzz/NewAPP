@@ -1,205 +1,62 @@
-<!-- res/layout/fragment_home.xml -->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="414dp"
-            android:layout_height="1068dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+        <!-- Calorie progress view -->
+        <com.example.appdefault.Custom.CalorieProgressView
+            android:id="@+id/calorieProgressView"
+            android:layout_width="161dp"
+            android:layout_height="159dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
 
+        <!-- Macronutrient progress views -->
+        <LinearLayout
+            android:id="@+id/macronutrientProgressLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/calorieProgressView"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
 
-            <!-- Add your other views above the buttons if needed -->
+            <!-- Protein progress -->
+            <com.example.appdefault.Custom.MacronutrientProgressView
+                android:id="@+id/proteinProgressView"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="306dp"
-                android:layout_height="305dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="293dp"
-                android:layout_marginEnd="53dp">
+            <!-- Carbs progress -->
+            <com.example.appdefault.Custom.MacronutrientProgressView
+                android:id="@+id/carbsProgressView"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
 
-                <Button
-                    android:id="@+id/buttonDietPlan"
-                    android:layout_width="205dp"
-                    android:layout_height="44dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Create recipes"
-                    android:background="@drawable/button_bg"
-                    style="@android:style/Widget.Button"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+            <!-- Fat progress -->
+            <com.example.appdefault.Custom.MacronutrientProgressView
+                android:id="@+id/fatProgressView"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
 
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="373dp"
-                    android:layout_height="294dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.492"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.454"
-                    app:srcCompat="@drawable/thuc_don" />
+        <!-- Add other views here if needed -->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="214dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/border"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent">
-
-
-                <ImageButton
-                    android:id="@+id/buttonProfile"
-                    android:layout_width="134dp"
-                    android:layout_height="191dp"
-                    android:layout_marginStart="10dp"
-                    android:src="@drawable/iconprofile"
-                    android:text="Hồ sơ của bạn"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.033"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.521" />
-
-                <LinearLayout
-                    android:layout_width="164dp"
-                    android:layout_height="192dp"
-                    android:layout_marginStart="33dp"
-                    android:layout_marginTop="27dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="26dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/buttonProfile"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/textViewName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="9dp"
-                        android:text="Tên: "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewAge"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="9dp"
-                        android:text="Tuổi: "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewHeight"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="9dp"
-                        android:text="Chiều cao: "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewWeight"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="9dp"
-                        android:text="Cân nặng: "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewBMI"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="9dp"
-                        android:text="BMI: "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="363dp"
-                android:layout_height="358dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="26dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="49dp"
-                app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <Button
-                    android:id="@+id/buttonWaterIntake"
-                    android:layout_width="151dp"
-                    android:layout_height="38dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/button_bg"
-                    style="@android:style/Widget.Button"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:text="Goals"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="352dp"
-                    android:layout_height="351dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/water_everyday" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!-- Add more buttons as needed -->
-        </RelativeLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </RelativeLayout>
 
 </androidx.core.widget.NestedScrollView>

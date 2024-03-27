@@ -1,10 +1,12 @@
-package com.example.appdefault;
+package com.example.appdefault.Activity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.appdefault.R;
 
 public class DietPlanActivity extends AppCompatActivity {
 

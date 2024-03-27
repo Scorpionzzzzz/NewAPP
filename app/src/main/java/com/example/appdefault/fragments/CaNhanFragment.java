@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.appdefault.R;
 
-public class ReminderFragment extends Fragment {
+public class CaNhanFragment extends Fragment {
 
-    public ReminderFragment() {
+    public CaNhanFragment() {
         // Required empty public constructor
     }
 
@@ -19,6 +19,6 @@ public class ReminderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reminder, container, false);
+        return inflater.inflate(R.layout.fragment_ca_nhan, container, false);
     }
 }
