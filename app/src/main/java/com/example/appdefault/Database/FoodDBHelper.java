@@ -7,6 +7,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.appdefault.FoodAdapter.FoodItem;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,9 +38,12 @@ public class FoodDBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_VITAMIN_C = "vitamin_C";
     public static final String COLUMN_CALCIUM = "calcium";
     public static final String COLUMN_CALORIES = "calories";  // Cột mới
+    private Context context;
+
 
     public FoodDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -44,6 +55,7 @@ public class FoodDBHelper extends SQLiteOpenHelper {
         db.execSQL(createNutrientTypeTableQuery);
 
         // Kiểm tra xem bảng food đã tồn tại chưa trước khi tạo
+
         if (!isTableExists(db, TABLE_FOOD)) {
             // Tạo bảng cho thực phẩm với khóa ngoại là nutrient_type_id
             String createFoodTableQuery = "CREATE TABLE " + TABLE_FOOD + " ("
@@ -56,8 +68,57 @@ public class FoodDBHelper extends SQLiteOpenHelper {
                     + COLUMN_CALCIUM + " REAL,"
                     + COLUMN_CALORIES + " INTEGER)";
             db.execSQL(createFoodTableQuery);
+
+            // Sao chép dữ liệu từ tệp trong thư mục assets
+            copyDataFromAssetsToDatabase(db);
         }
     }
+
+    private void copyDataFromAssetsToDatabase(SQLiteDatabase db) {
+        try {
+            InputStream inputStream = context.getAssets().open("nutrition_data.json");
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            bufferedReader.close();
+
+            // Parse JSON và chèn dữ liệu vào cơ sở dữ liệu
+            JSONArray jsonArray = new JSONArray(stringBuilder.toString());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String foodName = jsonObject.getString("name");
+                double proteinValue = jsonObject.getDouble("protein");
+                double carbohydratesValue = jsonObject.getDouble("carbohydrates");
+                double fatValue = jsonObject.getDouble("fat");
+                double vitaminCValue = jsonObject.getDouble("vitamin_C");
+                double calciumValue = jsonObject.getDouble("calcium");
+                int caloriesValue = jsonObject.getInt("calories");
+
+                String insertQuery = "INSERT INTO " + TABLE_FOOD + " (" +
+                        COLUMN_FOOD_NAME + ", " +
+                        COLUMN_PROTEIN + ", " +
+                        COLUMN_CARBOHYDRATES + ", " +
+                        COLUMN_FAT + ", " +
+                        COLUMN_VITAMIN_C + ", " +
+                        COLUMN_CALCIUM + ", " +
+                        COLUMN_CALORIES + ") VALUES (" +
+                        "'" + foodName + "', " +
+                        proteinValue + ", " +
+                        carbohydratesValue + ", " +
+                        fatValue + ", " +
+                        vitaminCValue + ", " +
+                        calciumValue + ", " +
+                        caloriesValue + ")";
+                db.execSQL(insertQuery);
+            }
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private boolean isTableExists(SQLiteDatabase db, String tableName) {
         Cursor cursor = db.rawQuery("SELECT * FROM sqlite_master WHERE type='table' AND name=?", new String[]{tableName});
@@ -126,8 +187,4 @@ public class FoodDBHelper extends SQLiteOpenHelper {
         db.close();
         return foodItems;
     }
-
-
-
-
 }

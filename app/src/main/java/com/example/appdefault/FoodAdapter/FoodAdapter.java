@@ -25,38 +25,40 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     private List<FoodItem> foodItems;
     private Context context;
     private MealDBHelper mealDBHelper;
+
     public FoodAdapter(List<FoodItem> foodItems, Context context) {
         this.foodItems = foodItems;
         this.context = context;
         mealDBHelper = new MealDBHelper(context);
     }
+
     public void setFoodItems(List<FoodItem> foodItems) {
         this.foodItems = foodItems;
         notifyDataSetChanged(); // Thông báo cho adapter biết rằng dữ liệu đã thay đổi
     }
+
     @NonNull
     @Override
     public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_food, parent, false);
         return new FoodViewHolder(view);
     }
+
     @Override
     public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
         FoodItem foodItem = foodItems.get(position);
         holder.textViewFoodName.setText(foodItem.getFoodName());
-        holder.textViewCalories.setText("100g - " + String.valueOf(foodItem.getCaloriesValue()) +"calories");
-        // Các set dữ liệu khác...
+        holder.textViewCalories.setText("100g - " + String.valueOf(foodItem.getCaloriesValue()) + " calories");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Chuyển sang FoodDetailActivity và gửi dữ liệu thực phẩm
                 Intent intent = new Intent(context, ChiTietThucAnActivity.class);
                 intent.putExtra("food_item", foodItem);
                 context.startActivity(intent);
             }
         });
-        // Trong onBindViewHolder của adapter
+
         holder.foodOptionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,15 +70,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.menu_bua_sang:
-                                // Thêm món ăn vào bữa sáng
                                 mealDBHelper.addFoodToMeal(foodItem.getFoodName(), "Bữa sáng");
                                 break;
                             case R.id.menu_bua_trua:
-                                // Thêm món ăn vào bữa trưa
                                 mealDBHelper.addFoodToMeal(foodItem.getFoodName(), "Bữa trưa");
                                 break;
                             case R.id.menu_bua_toi:
-                                // Thêm món ăn vào bữa tối
                                 mealDBHelper.addFoodToMeal(foodItem.getFoodName(), "Bữa tối");
                                 break;
                         }
@@ -89,13 +88,13 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         });
 
     }
+
     @Override
     public int getItemCount() {
         return foodItems.size();
     }
 
     public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
         private TextView textViewFoodName;
         private TextView textViewCalories;
         private FloatingActionButton foodOptionsButton;
@@ -108,16 +107,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             itemView.setOnClickListener(this);
         }
 
-        public void bind(FoodItem foodItem) {
-            textViewFoodName.setText(foodItem.getFoodName());
-            textViewCalories.setText(String.valueOf(foodItem.getCaloriesValue()));
-        }
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
                 FoodItem foodItem = foodItems.get(position);
-                // Chuyển sang trang chi tiết và truyền dữ liệu thực phẩm
                 Intent intent = new Intent(context, ChiTietThucAnActivity.class);
                 intent.putExtra("food_item",  foodItem);
                 context.startActivity(intent);

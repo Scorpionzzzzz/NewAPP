@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Chicken Breast",
+    "protein": 25.0,
+    "carbohydrates": 0.0,
+    "fat": 3.6,
+    "vitamin_C": 0.0,
+    "calcium": 1.0,
+    "calories": 110
+  },
+  {
+    "name": "Salmon",
+    "protein": 22.0,
+    "carbohydrates": 0.0,
+    "fat": 13.0,
+    "vitamin_C": 0.0,
+    "calcium": 12.0,
+    "calories": 206
+  },
+  {
+    "name": "Broccoli",
+    "protein": 2.8,
+    "carbohydrates": 6.0,
+    "fat": 0.3,
+    "vitamin_C": 89.2,
+    "calcium": 47.0,
+    "calories": 31
+  }
+
+]
