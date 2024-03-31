@@ -13,6 +13,8 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appdefault.Activity.ChiTietThucAnActivity;
+import com.example.appdefault.Activity.MainActivity;
+import com.example.appdefault.Database.MealDBHelper;
 import com.example.appdefault.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -22,9 +24,11 @@ import java.util.List;
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder> {
     private List<FoodItem> foodItems;
     private Context context;
+    private MealDBHelper mealDBHelper;
     public FoodAdapter(List<FoodItem> foodItems, Context context) {
         this.foodItems = foodItems;
         this.context = context;
+        mealDBHelper = new MealDBHelper(context);
     }
     public void setFoodItems(List<FoodItem> foodItems) {
         this.foodItems = foodItems;
@@ -62,16 +66,18 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        // Xử lý khi người dùng chọn một tùy chọn từ menu
                         switch (item.getItemId()) {
                             case R.id.menu_bua_sang:
-                                // Xử lý khi chọn bữa sáng
+                                // Thêm món ăn vào bữa sáng
+                                mealDBHelper.addFoodToMeal(foodItem.getFoodName(), "Bữa sáng");
                                 break;
                             case R.id.menu_bua_trua:
-                                // Xử lý khi chọn bữa trưa
+                                // Thêm món ăn vào bữa trưa
+                                mealDBHelper.addFoodToMeal(foodItem.getFoodName(), "Bữa trưa");
                                 break;
                             case R.id.menu_bua_toi:
-                                // Xử lý khi chọn bữa tối
+                                // Thêm món ăn vào bữa tối
+                                mealDBHelper.addFoodToMeal(foodItem.getFoodName(), "Bữa tối");
                                 break;
                         }
                         return true;

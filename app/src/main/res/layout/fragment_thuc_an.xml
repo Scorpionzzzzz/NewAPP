@@ -1,19 +1,52 @@
-<!-- fragment_recipes.xml -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ThucAnFragment"
-    android:background="@color/white">
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/darkgreen"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif"
+            android:text="Food"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/editTextSearch"
         android:layout_width="295dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="110dp"
         android:layout_marginEnd="16dp"
         android:hint="Search food" />
 
@@ -24,7 +57,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="110dp"
         android:layout_marginEnd="16dp"
         android:layout_toEndOf="@+id/editTextSearch"
         app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
@@ -35,10 +68,9 @@
         android:layout_height="match_parent"
         android:layout_below="@id/editTextSearch"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
         android:lineSpacingExtra="20dp"
         android:outlineSpotShadowColor="@color/bluegem" />
-
 
 </RelativeLayout>

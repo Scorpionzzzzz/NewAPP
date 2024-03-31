@@ -25,22 +25,6 @@
             android:layout_marginEnd="290dp"
             android:src="@drawable/border1"
             />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/foodOptionsButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="42dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="63dp"
-            android:backgroundTint="#fff"
-            android:clickable="true"
-            android:src="@drawable/plus"
-            app:tint="#84C384" />
-
     </RelativeLayout>
     <TextView
         android:id="@+id/textViewFoodName"

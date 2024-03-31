@@ -1,48 +1,71 @@
-<!-- res/layout/fragment_home.xml -->
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8" ?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-        <RelativeLayout
+    android:layout_height="160dp"
+    android:background="#F1F1F1"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:alpha="0.5"
+        android:src="@drawable/border2"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="290dp"
+            android:src="@drawable/border1"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/foodOptionsButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="63dp"
+            android:backgroundTint="#fff"
+            android:clickable="true"
+            android:src="@drawable/plus"
+            app:tint="#84C384" />
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/textViewFoodName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="6dp"
+        android:hint="Gao"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewCalories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewFoodName"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="1dp"
+        android:hint="100-200 calories"
+        android:textSize="15sp" />
+
+</RelativeLayout>
 
 
-            <!-- Add your other views above the buttons if needed -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="20dp">
 
-                <com.example.appdefault.Custom.CalorieProgressView
-                    android:id="@+id/calorieProgressView"
-                    android:layout_width="184dp"
-                    android:layout_height="178dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Calories Goal" />
-
-                <!-- Thêm các view khác cho thông tin khác (nếu cần) -->
-            </LinearLayout>
-
-
-
-
-
-            <!-- Add more buttons as needed -->
-        </RelativeLayout>
-
-
-
-
-
-</androidx.core.widget.NestedScrollView>
