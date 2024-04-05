@@ -1,13 +1,252 @@
-<!-- res/layout/fragment_profile.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
-
-    <TextView
-        android:layout_width="wrap_content"
+    >
+    <LinearLayout
+        android:id="@+id/linearLayout0"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Coming Soon" />
+        android:orientation="horizontal">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/darkgreen"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF"
+            />
+    </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif"
+            android:text="Profile -"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textYourName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="Your Name"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout1"
+        android:background="#eef2f5"
+        >
+
+        <Button
+            android:id="@+id/Buttonsuathongtin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:text="Thông tin cá nhân"
+            android:backgroundTint="#eef2f5"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+        <RelativeLayout
+            android:id="@+id/RelativeLayoutBMI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Buttonsuathongtin"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="402dp"
+            android:background="@drawable/bo_tron_goc"
+            >
+
+            <TextView
+                android:id="@+id/textBMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView14"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="0dp"
+                android:ellipsize="none"
+                android:singleLine="true"
+                android:text="0"
+                android:textColor="@color/red"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:ellipsize="none"
+                android:text="BMI"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="40dp"
+                android:text="0 cm"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_above= "@id/textHeight"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="-50dp"
+                android:text="Height"
+                android:textColor="#6A6969"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewLich"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="35dp"
+                android:text="Cập nhật chỉ số"
+                android:textColor="#FFC107"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="51dp"
+                android:layout_marginBottom="40dp"
+                android:text="0 kg"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textWeight"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="38dp"
+                android:layout_marginBottom="-50dp"
+                android:text="Weight"
+                android:textColor="#6A6969"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewLich"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="18dp"
+                android:text="26 tháng 3 - 12:34"
+                android:textColor="#6A6969"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutWater"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="102dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginStart="22dp"
+            android:layout_below="@id/textViewNhacnho"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bo_tron_goc"
+            />
+
+        <TextView
+            android:id="@+id/textViewWaterOfDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/relativeLayoutWater"
+            android:layout_alignTop="@+id/relativeLayoutWater"
+            android:layout_marginStart="30dp"
+
+            android:layout_marginTop="20dp"
+            android:text="0 ml"
+            android:textColor="@color/red"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/relativeLayoutWater"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="360dp"
+            android:layout_marginEnd="180dp"
+            android:layout_marginBottom="250dp"
+            android:text="Lượng nước bạn cần uống"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="" />
+
+        <TextView
+            android:id="@+id/textViewNhacnho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="259dp"
+            android:text="Bạn nên uống bao nhiêu nước"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</RelativeLayout>

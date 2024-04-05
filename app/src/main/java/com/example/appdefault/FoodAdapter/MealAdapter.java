@@ -1,51 +1,57 @@
 package com.example.appdefault.FoodAdapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.appdefault.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-public class MealAdapter extends ArrayAdapter<Meal> {
+public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder> {
 
     private Context mContext;
     private List<Meal> mMealList;
 
     public MealAdapter(Context context, List<Meal> mealList) {
-        super(context, 0, mealList);
         mContext = context;
         mMealList = mealList;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        // Kiểm tra xem convertView có được sử dụng lại hay không, nếu không thì inflate layout mới
-        if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.meal_item, parent, false);
-        }
-
-        // Lấy món ăn ở vị trí hiện tại
-        Meal currentMeal = mMealList.get(position);
-
-        // Ánh xạ các view trong layout của món ăn
-        TextView nameTextView = convertView.findViewById(R.id.textViewFoodName);
-        TextView caloriesTextView = convertView.findViewById(R.id.textViewCalories);
-
-
-        // Đặt thông tin của món ăn vào các view tương ứng
-        nameTextView.setText(currentMeal.getName());
-        caloriesTextView.setText("Calories: " + currentMeal.getCalories());
-
-        return convertView;
+    public MealViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.meal_item, parent, false);
+        return new MealViewHolder(itemView);
     }
 
+    @Override
+    public void onBindViewHolder(MealViewHolder holder, int position) {
+        Meal currentMeal = mMealList.get(position);
+        holder.nameTextView.setText(currentMeal.getName());
+        holder.caloriesTextView.setText("Calories: " + currentMeal.getCalories());
+    }
+
+    @Override
+    public int getItemCount() {
+        return mMealList.size();
+    }
+
+    public class MealViewHolder extends RecyclerView.ViewHolder {
+        // Khai báo các view trong mỗi item của RecyclerView
+        private TextView nameTextView;
+        private TextView caloriesTextView;
+
+        public MealViewHolder(View itemView) {
+            super(itemView);
+            // Ánh xạ các view trong mỗi item
+            nameTextView = itemView.findViewById(R.id.textViewFoodName);
+            caloriesTextView = itemView.findViewById(R.id.textViewCalories);
+        }
+        // Các phương thức khác của MealViewHolder (nếu cần)
+    }
 
 }

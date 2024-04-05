@@ -20,6 +20,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_AGE = "age";
     public static final String COLUMN_HEIGHT = "height";
     public static final String COLUMN_WEIGHT = "weight";
+    public static final String COLUMN_TDEE = "tdee"; // Thêm cột TDEE
+    public static final String COLUMN_PROTEIN_OF_DAY = "protein_of_day"; // Thêm cột protein
+    public static final String COLUMN_CARBOHYDRATE_OF_DAY = "carbohydrate_of_day"; // Thêm cột carbohydrate
+    public static final String COLUMN_FAT_OF_DAY = "fat_of_day"; // Thêm cột fat
 
     // Hằng số cho bảng user_table
     public static final String TABLE_USER = "user_table";
@@ -37,7 +41,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 + COLUMN_NAME + " TEXT,"
                 + COLUMN_AGE + " INTEGER,"
                 + COLUMN_HEIGHT + " REAL,"
-                + COLUMN_WEIGHT + " REAL)";
+                + COLUMN_WEIGHT + " REAL,"
+                + COLUMN_TDEE + " REAL,"
+                + COLUMN_PROTEIN_OF_DAY + " REAL," // Thêm cột protein
+                + COLUMN_CARBOHYDRATE_OF_DAY + " REAL," // Thêm cột carbohydrate
+                + COLUMN_FAT_OF_DAY + " REAL)"; // Thêm cột fat
         db.execSQL(createProfileTableQuery);
 
         // Tạo bảng và cột cho bảng người dùng (tên đăng nhập và mật khẩu)
@@ -53,20 +61,24 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Xử lý nâng cấp cơ sở dữ liệu nếu cần
     }
-    public void updateProfile(String name, String age, String height, String weight) {
+    public void updateProfile(String name, String age, String height, String weight, String tdee, String proteinOfDay, String carbohydrateOfDay, String fatOfDay) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, name);
         values.put(COLUMN_AGE, age);
         values.put(COLUMN_HEIGHT, height);
         values.put(COLUMN_WEIGHT, weight);
+        values.put(COLUMN_TDEE, tdee);
+        values.put(COLUMN_PROTEIN_OF_DAY, proteinOfDay);
+        values.put(COLUMN_CARBOHYDRATE_OF_DAY, carbohydrateOfDay); // Lưu giá trị carbohydrate of day
+        values.put(COLUMN_FAT_OF_DAY, fatOfDay); // Lưu giá trị fat of day
 
         // Cập nhật dữ liệu trong bảng profile_table
         db.update(TABLE_PROFILE, values, null, null);
         db.close(); // Đóng kết nối CSDL
     }
 
-    public void saveProfile(String name, String age, String height, String weight) {
+    public void saveProfile(String name, String age, String height, String weight, String tdee, String proteinOfDay, String carbohydrateOfDay, String fatOfDay) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -74,23 +86,32 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_AGE, age);
         values.put(COLUMN_HEIGHT, height);
         values.put(COLUMN_WEIGHT, weight);
+        values.put(COLUMN_TDEE, tdee);
+        values.put(COLUMN_PROTEIN_OF_DAY, proteinOfDay);
+        values.put(COLUMN_CARBOHYDRATE_OF_DAY, carbohydrateOfDay);
+        values.put(COLUMN_FAT_OF_DAY, fatOfDay);
 
         // Chèn dữ liệu vào bảng profile_table
         db.insert(TABLE_PROFILE, null, values);
         db.close();
     }
+
+
     public Cursor getProfileData() {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] projection = {COLUMN_NAME, COLUMN_AGE, COLUMN_HEIGHT, COLUMN_WEIGHT};
+        String[] projection = {COLUMN_NAME, COLUMN_AGE, COLUMN_HEIGHT, COLUMN_WEIGHT, COLUMN_TDEE, COLUMN_PROTEIN_OF_DAY, COLUMN_CARBOHYDRATE_OF_DAY, COLUMN_FAT_OF_DAY}; // Thêm COLUMN_CARBOHYDRATE_OF_DAY và COLUMN_FAT_OF_DAY vào projection
         Cursor cursor = db.query(TABLE_PROFILE, projection, null, null, null, null, null);
         return cursor;
     }
+
+
     public void deleteProfile() {
         SQLiteDatabase db = this.getWritableDatabase();
         // Xóa dữ liệu trong bảng profile_table
         db.delete(TABLE_PROFILE, null, null);
         db.close(); // Đóng kết nối CSDL
     }
+
     // Trong lớp DBHelper
     public boolean hasProfileData() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -101,9 +122,9 @@ public class DBHelper extends SQLiteOpenHelper {
         if (cursor != null) {
             cursor.close();
         }
-
         return hasData;
     }
+
     public boolean isUsernameAvailable(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_USERNAME + " = ?";

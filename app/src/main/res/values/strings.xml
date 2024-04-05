@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">meal</string>
+    <string-array name="activity_levels">
+        <item>Không có hoặc ít vận động</item>
+        <item>Ít vận động (1-3 ngày/tuần)</item>
+        <item>Vừa phải (3-5 ngày/tuần)</item>
+        <item>Năng động (6-7 ngày/tuần)</item>
+        <item>Cực kỳ năng động (Hoạt động nặng, thể dục 2 lần/ngày)</item>
+    </string-array>
 </resources>

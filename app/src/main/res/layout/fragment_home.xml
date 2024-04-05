@@ -44,14 +44,14 @@
                     app:trackThickness="18dp" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textViewCalodanap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="295.5"
                     android:textColor="@color/pink_300"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintBottom_toTopOf="@+id/textviewCaloOfDay"
                     app:layout_constraintEnd_toEndOf="@+id/circularProgressIndicator"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator"
@@ -59,7 +59,7 @@
                     app:layout_constraintVertical_chainStyle="packed" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/textviewCaloOfDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="of 1200 kcal"
@@ -69,7 +69,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/circularProgressIndicator"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewCalodanap" />
 
                 <TextView
                     android:id="@+id/textView3"
@@ -99,7 +99,7 @@
                     app:trackThickness="8dp" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textViewProtein"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="19.5"
@@ -110,14 +110,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearProgressIndicator" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/textViewProteinOfDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="of 97"
                     android:textStyle="bold"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-                    app:layout_constraintStart_toEndOf="@+id/textView4" />
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textViewProtein"
+                    app:layout_constraintStart_toEndOf="@+id/textViewProtein" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -146,7 +146,7 @@
                     app:trackThickness="8dp" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/textViewFat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="7.5"
@@ -157,14 +157,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearProgressIndicator2" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/textViewFatofDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="of 28.7"
                     android:textStyle="bold"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
-                    app:layout_constraintStart_toEndOf="@+id/textView6" />
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textViewFat"
+                    app:layout_constraintStart_toEndOf="@+id/textViewFat" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -191,7 +191,7 @@
                     app:trackThickness="8dp" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/textViewCarbohydrates"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="37.7"
@@ -202,13 +202,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearProgressIndicator3" />
 
                 <TextView
+                    android:id="@+id/textViewCarbsOfDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="of 161.6"
                     android:textStyle="bold"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
-                    app:layout_constraintStart_toEndOf="@+id/textView8" />
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textViewCarbohydrates"
+                    app:layout_constraintStart_toEndOf="@+id/textViewCarbohydrates" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -224,7 +225,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:padding="16dp">
 
                 <TextView
@@ -240,28 +241,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:text="295.5 kcal"
-                    android:textColor="@color/pink_300"
-                    android:textStyle="bold"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
-                    app:layout_constraintEnd_toEndOf="parent" />
 
-
-
-
-                <ListView
-                    android:id="@+id/listviewBreakfast"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBreakfast"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@+id/textView9">
-
-                </ListView>
+                </androidx.recyclerview.widget.RecyclerView>
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -280,7 +268,7 @@
                     app:icon="@drawable/ic_add"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/listviewBreakfast" />
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerViewBreakfast" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -309,15 +297,15 @@
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-                <ListView
-                    android:id="@+id/listviewLunch"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewLunch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@+id/textView12">
 
-                </ListView>
+                </androidx.recyclerview.widget.RecyclerView>
 
 
 
@@ -336,7 +324,7 @@
                     app:icon="@drawable/ic_add"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/listviewLunch" />
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerViewLunch" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -369,20 +357,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <!-- Dinner Calorie -->
-                <TextView
-                    android:id="@+id/textView_dinnerCalories"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:text="XXX kcal"
-                    android:textColor="@color/pink_300"
-                    android:textStyle="bold"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView_dinnerTitle"
-                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <!-- ListView for Dinner -->
-                <ListView
-                    android:id="@+id/listViewDinner"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewDinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -405,7 +383,7 @@
                     app:icon="@drawable/ic_add"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/listViewDinner" />
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerViewDinner" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>

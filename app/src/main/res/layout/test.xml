@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="110dp"
     android:background="#F1F1F1"
     >
 
@@ -16,26 +16,18 @@
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="160dp">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="290dp"
-            android:src="@drawable/border1"
-            />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/foodOptionsButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="42dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="63dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="19dp"
             android:backgroundTint="#fff"
             android:clickable="true"
             android:src="@drawable/plus"
@@ -44,11 +36,11 @@
     </RelativeLayout>
     <TextView
         android:id="@+id/textViewFoodName"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="6dp"
         android:hint="Gao"
         android:textSize="30dp"
@@ -56,12 +48,14 @@
 
     <TextView
         android:id="@+id/textViewCalories"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewFoodName"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="1dp"
+        android:textColor="#84C384"
+        android:textStyle="bold"
         android:hint="100-200 calories"
         android:textSize="15sp" />
 

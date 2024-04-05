@@ -1,30 +1,875 @@
 [
   {
-    "name": "Chicken Breast",
-    "protein": 25.0,
-    "carbohydrates": 0.0,
-    "fat": 3.6,
-    "vitamin_C": 0.0,
-    "calcium": 1.0,
+    "name": "Gạo nếp cái",
+    "protein":  8.6,
+    "carbohydrates":  74.5,
+    "fat": 1.5,
+    "vitamin_C":  0,
+    "calcium": 32,
+    "calories":  344
+  },
+  {
+    "name": "Gạo nếp thường",
+    "protein":  8.4,
+    "carbohydrates":  74.9,
+    "fat":  1.6,
+    "vitamin_C": 0,
+    "calcium": 16,
+    "calories": 346
+  },
+  {
+    "name": "Gạo tẻ giã",
+    "protein":  8.1,
+    "carbohydrates": 75.0,
+    "fat": 1.3,
+    "vitamin_C": 0,
+    "calcium": 36,
+    "calories": 344
+  },
+  {
+    "name": "Gọa tẻ máy",
+    "protein": 7.9,
+    "carbohydrates": 75.9,
+    "fat": 1.0,
+    "vitamin_C": 0,
+    "calcium": 30,
+    "calories": 344
+  },
+  {
+    "name": "Gạo lứt",
+    "protein": 7.5,
+    "carbohydrates": 72.8,
+    "fat": 2.7,
+    "vitamin_C":0 ,
+    "calcium": 0,
+    "calories": 345
+  },
+  {
+    "name": "Kê",
+    "protein": 7.0,
+    "carbohydrates": 69.0,
+    "fat": 3.0,
+    "vitamin_C": 0,
+    "calcium": 22,
+    "calories": 331
+  },
+  {
+    "name": "Ngô bắp tươi",
+    "protein": 4.1,
+    "carbohydrates": 39.6,
+    "fat": 2.3,
+    "vitamin_C": 12,
+    "calcium": 4,
+    "calories": 196
+  },
+  {
+    "name": "Ngô hạt vàng khô",
+    "protein": 8.6,
+    "carbohydrates": 69.4,
+    "fat": 4.7,
+    "vitamin_C": 0,
+    "calcium": 30,
+    "calories": 354
+  },
+  {
+    "name": "Bánh bao nhân thịt",
+    "protein": 6.1,
+    "carbohydrates": 47.5,
+    "fat": 0.5,
+    "vitamin_C": 0,
+    "calcium": 19,
+    "calories": 219
+  },
+  {
+    "name": "Bánh đa nem",
+    "protein": 4.0,
+    "carbohydrates": 78.9,
+    "fat": 0.2,
+    "vitamin_C": 0,
+    "calcium": 20,
+    "calories": 333
+  },
+  {
+    "name": "Bánh đúc",
+    "protein": 0.9,
+    "carbohydrates": 11.3,
+    "fat": 0.3,
+    "vitamin_C": 0,
+    "calcium": 50,
+    "calories": 52
+  },
+  {
+    "name": "Bánh mì",
+    "protein": 7.9,
+    "carbohydrates": 52.6,
+    "fat": 0.8,
+    "vitamin_C": 0,
+    "calcium": 28,
+    "calories": 249
+  },
+  {
+    "name": "Bánh phở",
+    "protein": 3.2,
+    "carbohydrates": 31.7,
+    "fat": 0.4,
+    "vitamin_C": 0,
+    "calcium": 16,
+    "calories": 143
+  },
+  {
+    "name": "Bánh quẩy",
+    "protein": 8.0,
+    "carbohydrates": 40.7,
+    "fat": 10.8,
+    "vitamin_C": 0,
+    "calcium": 0,
+    "calories": 292
+  },
+  {
+    "name": "Bỏng ngô",
+    "protein": 8.6,
+    "carbohydrates": 80.8,
+    "fat": 1.6,
+    "vitamin_C": 0,
+    "calcium": 3,
+    "calories": 372
+  },
+  {
+    "name": "Bột gạo nếp",
+    "protein": 8.2,
+    "carbohydrates": 78.8,
+    "fat": 1.6,
+    "vitamin_C": 0,
+    "calcium": 12,
+    "calories": 362
+  },
+  {
+    "name": "Bột gạo tẻ",
+    "protein": 6.6,
+    "carbohydrates": 82.2,
+    "fat": 0.4,
+    "vitamin_C": 0,
+    "calcium": 24,
+    "calories": 359
+  },
+  {
+    "name": "Bột mì",
+    "protein": 10.3,
+    "carbohydrates": 73.6,
+    "fat": 1.1,
+    "vitamin_C": 0,
+    "calcium": 29,
+    "calories": 346
+  },
+  {
+    "name": "Bột ngô vàng",
+    "protein": 8.3,
+    "carbohydrates": 73.0,
+    "fat": 4.0,
+    "vitamin_C": 0,
+    "calcium": 15,
+    "calories": 361
+  },
+  {
+    "name": "Bún",
+    "protein": 1.7,
+    "carbohydrates": 25.7,
+    "fat": 0,
+    "vitamin_C": 0,
+    "calcium": 12,
     "calories": 110
   },
   {
-    "name": "Salmon",
-    "protein": 22.0,
-    "carbohydrates": 0.0,
-    "fat": 13.0,
-    "vitamin_C": 0.0,
-    "calcium": 12.0,
-    "calories": 206
+    "name": "Cốm",
+    "protein": 6.1,
+    "carbohydrates": 66.3,
+    "fat": 0.8,
+    "vitamin_C": 0,
+    "calcium": 24,
+    "calories": 297
   },
   {
-    "name": "Broccoli",
-    "protein": 2.8,
-    "carbohydrates": 6.0,
+    "name": "Mỳ sợi",
+    "protein": 11.0,
+    "carbohydrates": 74.2,
+    "fat": 0.9,
+    "vitamin_C": 0,
+    "calcium": 34,
+    "calories": 349
+  },
+  {
+    "name": "Ngô nếp luộc",
+    "protein": 3.9,
+    "carbohydrates": 32.9,
+    "fat": 2.2,
+    "vitamin_C": 0,
+    "calcium": 18,
+    "calories": 167
+  },
+  {
+    "name": "Củ ấu",
+    "protein": 3.6,
+    "carbohydrates": 24.0,
+    "fat": 0.5,
+    "vitamin_C": 5,
+    "calcium": 9,
+    "calories": 115
+  },
+  {
+    "name": "Củ cái",
+    "protein": 3.1,
+    "carbohydrates":2,
+    "fat": 0.2,
+    "vitamin_C": 1,
+    "calcium": 20,
+    "calories": 127
+  },
+  {
+    "name": "Củ dong",
+    "protein": 1.4,
+    "carbohydrates": 28.4,
+    "fat": 0,
+    "vitamin_C": 0,
+    "calcium": 42,
+    "calories": 119
+  },
+  {
+    "name": "Củ sắn",
+    "protein": 1.1,
+    "carbohydrates": 36.4,
+    "fat": 0.2,
+    "vitamin_C": 34,
+    "calcium": 25,
+    "calories": 152
+  },
+  {
+    "name": "Củ sắn dây",
+    "protein": 1.6,
+    "carbohydrates": 28.0,
+    "fat": 0.1,
+    "vitamin_C": 0,
+    "calcium": 28,
+    "calories": 119
+  },
+  {
+    "name": "Củ súng khô (đã bỏ vỏ)",
+    "protein": 16.1,
+    "carbohydrates": 70.3,
+    "fat": 0.5,
+    "vitamin_C": 0,
+    "calcium": 100,
+    "calories": 350
+  },
+  {
+    "name": "Củ từ",
+    "protein": 1.5,
+    "carbohydrates": 21.5,
+    "fat": 0,
+    "vitamin_C": 2,
+    "calcium": 28,
+    "calories": 92
+  },
+  {
+    "name": "Khoai lang",
+    "protein": 0.8,
+    "carbohydrates": 28.5,
+    "fat": 0.2,
+    "vitamin_C": 23,
+    "calcium": 34,
+    "calories": 119
+  },
+  {
+    "name": "Khoai lang nghệ",
+    "protein": 1.2,
+    "carbohydrates": 27.1,
     "fat": 0.3,
-    "vitamin_C": 89.2,
-    "calcium": 47.0,
-    "calories": 31
+    "vitamin_C": 30,
+    "calcium": 36,
+    "calories": 116
+  },
+  {
+    "name": "Khoai môn",
+    "protein": 1.5,
+    "carbohydrates": 25.2,
+    "fat": 0.2,
+    "vitamin_C": 4,
+    "calcium": 44,
+    "calories": 109
+  },
+  {
+    "name": "Khoai nước",
+    "protein": 1.0,
+    "carbohydrates": 23.3,
+    "fat": 0.1,
+    "vitamin_C": 3,
+    "calcium": 52,
+    "calories": 98
+  },
+  {
+    "name": "Khoai riềng",
+    "protein": 0.8,
+    "carbohydrates": 25.1,
+    "fat": 0,
+    "vitamin_C": 0,
+    "calcium": 64,
+    "calories": 104
+  },
+  {
+    "name": "Khoai sọ",
+    "protein": 1.8,
+    "carbohydrates": 26.5,
+    "fat": 0.1,
+    "vitamin_C": 4,
+    "calcium": 64,
+    "calories": 114
+  },
+  {
+    "name": "Khoai tây",
+    "protein": 2.0,
+    "carbohydrates": 20.9,
+    "fat":0.1 ,
+    "vitamin_C": 10,
+    "calcium": 10,
+    "calories": 93
+  },
+  {
+    "name": "Miến rong",
+    "protein": 0.6,
+    "carbohydrates": 82.2,
+    "fat": 0.1,
+    "vitamin_C": 0,
+    "calcium": 40,
+    "calories": 332
+  },
+  {
+    "name": "Bột dong lọc",
+    "protein": 0.6,
+    "carbohydrates": 84.7,
+    "fat": 0,
+    "vitamin_C": 0,
+    "calcium": 37,
+    "calories": 341
+  },
+  {
+    "name": "Bột khoai lang",
+    "protein": 2.2,
+    "carbohydrates": 80.2,
+    "fat": 0.5,
+    "vitamin_C": 0,
+    "calcium": 50,
+    "calories": 334
+  },
+  {
+    "name": "Bột khoai riềng (Bột đao)",
+    "protein": 0.2,
+    "carbohydrates": 84.1,
+    "fat": 0,
+    "vitamin_C": 0,
+    "calcium": 16,
+    "calories": 337
+  },
+  {
+    "name": "Bột khoai tây (lọc)",
+    "protein": 1.0,
+    "carbohydrates": 84.4,
+    "fat": 0.3,
+    "vitamin_C": 0,
+    "calcium": 30,
+    "calories": 345
+  },
+  {
+    "name": "Bột sắn",
+    "protein": 2.4,
+    "carbohydrates": 79.6,
+    "fat": 0.5,
+    "vitamin_C": 0,
+    "calcium": 84,
+    "calories": 333
+  },
+  {
+    "name": "Bột sắn dây",
+    "protein": 0.7,
+    "carbohydrates": 84.3,
+    "fat": 0,
+    "vitamin_C": 0,
+    "calcium": 18,
+    "calories": 340
+  },
+  {
+    "name": "Khoai lang khô",
+    "protein": 2.2,
+    "carbohydrates": 80.0,
+    "fat": 0.5,
+    "vitamin_C": 0,
+    "calcium": 95,
+    "calories": 333
+  },
+  {
+    "name": "Khoai tây khô",
+    "protein": 6.6,
+    "carbohydrates": 75.1,
+    "fat": 0.3,
+    "vitamin_C": 0,
+    "calcium": 37,
+    "calories": 330
+  },
+  {
+    "name": "Khoai tây chiên",
+    "protein": 2.2,
+    "carbohydrates": 49.3,
+    "fat": 35.4,
+    "vitamin_C": 1,
+    "calcium": 37,
+    "calories": 525
+  },
+  {
+    "name": "Sắn khô",
+    "protein": 3.0,
+    "carbohydrates": 80.3,
+    "fat": 0.7,
+    "vitamin_C": 0,
+    "calcium": 96,
+    "calories": 340
+  },
+  {
+    "name": "Trân châu sắn",
+    "protein": 1.0,
+    "carbohydrates": 84.3,
+    "fat": 0,
+    "vitamin_C": 0,
+    "calcium": 30,
+    "calories": 341
+  },
+  {
+    "name": "Cùi dừa già",
+    "protein": 4.8,
+    "carbohydrates": 6.2,
+    "fat": 36.0,
+    "vitamin_C": 2,
+    "calcium": 30,
+    "calories": 368
+  },
+  {
+    "name": "Cùi dừa non",
+    "protein": 3.5,
+    "carbohydrates": 2.6,
+    "fat": 1.7,
+    "vitamin_C": 6,
+    "calcium": 4,
+    "calories": 40
+  },
+  {
+    "name": "Đậu cô ve (hạt)",
+    "protein": 21.8,
+    "carbohydrates": 54.9,
+    "fat": 1.6,
+    "vitamin_C": 0,
+    "calcium": 96,
+    "calories": 321
+  },
+  {
+    "name": "Đậu đen (hạt)",
+    "protein": 24.2,
+    "carbohydrates": 53.3,
+    "fat": 1.7,
+    "vitamin_C": 3,
+    "calcium": 56,
+    "calories": 325
+  },
+  {
+    "name": "Đậu đũa (hạt)",
+    "protein": 23.7,
+    "carbohydrates": 51.9,
+    "fat": 2.0,
+    "vitamin_C": 1,
+    "calcium": 110,
+    "calories": 320
+  },
+  {
+    "name": "Đậu hà lan (hạt)",
+    "protein": 22.2,
+    "carbohydrates": 54.1,
+    "fat": 1.4,
+    "vitamin_C": 0,
+    "calcium": 57,
+    "calories": 318
+  },
+  {
+    "name": "Đậu tương (Đậu nành)",
+    "protein": 34.0,
+    "carbohydrates": 24.6,
+    "fat": 18.4,
+    "vitamin_C": 4,
+    "calcium": 165,
+    "calories": 400
+  },
+  {
+    "name": "Dậu trắng hạt (Đậu tây)",
+    "protein": 23.2,
+    "carbohydrates": 53.8,
+    "fat": 2.1,
+    "vitamin_C": 3,
+    "calcium": 160,
+    "calories": 327
+  },
+  {
+    "name": "Đậu trứng quốc",
+    "protein": 25.8,
+    "carbohydrates": 50.0,
+    "fat": 2.0,
+    "vitamin_C": 0,
+    "calcium": 0,
+    "calories": 321
+  },
+  {
+    "name": "Đậu xanh (Đậu tắt)",
+    "protein": 23.4,
+    "carbohydrates": 53.1,
+    "fat": 2.4,
+    "vitamin_C": 4,
+    "calcium": 64,
+    "calories": 328
+  },
+  {
+    "name": "Hạt dẻ to",
+    "protein": 18.0,
+    "carbohydrates": 8.7,
+    "fat": 59.0,
+    "vitamin_C": 3,
+    "calcium": 61,
+    "calories": 638
+  },
+  {
+    "name": "Hạt dẻ tươi",
+    "protein": 4.2,
+    "carbohydrates": 49.1,
+    "fat": 1.1,
+    "vitamin_C": 36,
+    "calcium": 18,
+    "calories": 223
+  },
+  {
+    "name": "Hạt dẻ khô",
+    "protein": 6.8,
+    "carbohydrates": 79.8,
+    "fat": 1.8,
+    "vitamin_C": 59,
+    "calcium": 29,
+    "calories": 363
+  },
+  {
+    "name": "Hạt đen",
+    "protein": 17.3,
+    "carbohydrates": 35.5,
+    "fat": 29.0,
+    "vitamin_C": 0,
+    "calcium": 84,
+    "calories": 472
+  },
+  {
+    "name": "Hạt điều",
+    "protein": 18.4,
+    "carbohydrates": 28.7,
+    "fat": 46.3,
+    "vitamin_C": 1,
+    "calcium": 28,
+    "calories": 605
+  },
+  {
+    "name": "Hạt mít",
+    "protein": 0.7,
+    "carbohydrates": 38.3,
+    "fat": 1.1,
+    "vitamin_C": 0,
+    "calcium": 46,
+    "calories": 166
+  },
+  {
+    "name": "Lạc hạt",
+    "protein": 27.5,
+    "carbohydrates": 15.5,
+    "fat": 44.5,
+    "vitamin_C": 0,
+    "calcium": 68,
+    "calories": 573
+  },
+  {
+    "name": "Quả cọ tươi",
+    "protein": 2.3,
+    "carbohydrates": 12.1,
+    "fat": 13.4,
+    "vitamin_C": 0,
+    "calcium": 38,
+    "calories": 178
+  },
+  {
+    "name": "Vừng (đen, trắng)",
+    "protein": 20.1,
+    "carbohydrates": 17.6,
+    "fat": 46.4,
+    "vitamin_C": 0,
+    "calcium": 975,
+    "calories": 568
+  },
+  {
+    "name": "Đậu phụ",
+    "protein": 10.9,
+    "carbohydrates": 0.7,
+    "fat": 5.4,
+    "vitamin_C": 0,
+    "calcium": 24,
+    "calories": 95
+  },
+  {
+    "name": "Sữa đậu nành (100g đậu/lít)",
+    "protein": 3.1,
+    "carbohydrates": 0.4,
+    "fat": 1.6,
+    "vitamin_C": 0,
+    "calcium": 18,
+    "calories": 28
+  },
+  {
+    "name": "Tào phớ",
+    "protein": 2.3,
+    "carbohydrates": 6.4,
+    "fat": 0.2,
+    "vitamin_C": 0,
+    "calcium": 92,
+    "calories": 37
+  },
+  {
+    "name": "Bầu",
+    "protein": 0.6,
+    "carbohydrates": 2.9,
+    "fat": 0.02,
+    "vitamin_C": 12,
+    "calcium": 21,
+    "calories": 14
+  },
+  {
+    "name": "Bí đao (Bí xanh)",
+    "protein": 0.6,
+    "carbohydrates": 2.4,
+    "fat": 0,
+    "vitamin_C": 16,
+    "calcium": 26,
+    "calories": 12
+  },
+  {
+    "name": "Bí ngô",
+    "protein": 0.3,
+    "carbohydrates": 6.1,
+    "fat": 0.1,
+    "vitamin_C": 8,
+    "calcium": 24,
+    "calories": 27
+  },
+  {
+    "name": "Cà chua",
+    "protein": 0.6,
+    "carbohydrates ": 4.0,
+    "fat": 0.2,
+    "vitamin_C": 40,
+    "calcium": 12,
+    "calories": 20
+  },
+  {
+    "name": "Ca pháo",
+    "protein": 1.5,
+    "carbohydrates": 3.6,
+    "fat": 0,
+    "vitamin_C": 3,
+    "calcium": 12,
+    "calories": 20
+  },
+  {
+    "name": "Cà rốt",
+    "protein": 1.5,
+    "carbohydrates": 7.8,
+    "fat": 0.2,
+    "vitamin_C": 8,
+    "calcium": 43,
+    "calories": 39
+  },
+  {
+    "name": "Cà tím",
+    "protein": 1.0,
+    "carbohydrates": 4.5,
+    "fat": 0,
+    "vitamin_C": 15,
+    "calcium": 15,
+    "calories": 22
+  },
+  {
+    "name": "Cải bắp",
+    "protein": 1.8,
+    "carbohydrates": 5.3,
+    "fat": 0.1,
+    "vitamin_C": 30,
+    "calcium": 48,
+    "calories": 29
+  },
+  {
+    "name": "Cải cúc",
+    "protein": 1.6,
+    "carbohydrates": 1.9,
+    "fat": 0,
+    "vitamin_C": 27,
+    "calcium": 63,
+    "calories": 14
+  },
+  {
+    "name": "Cải soong",
+    "protein": 2.1,
+    "carbohydrates": 1.3,
+    "fat": 0.1,
+    "vitamin_C": 25,
+    "calcium": 69,
+    "calories": 15
+  },
+  {
+    "name": "Cải thìa",
+    "protein": 1.4,
+    "carbohydrates": 2.4,
+    "fat": 0.2,
+    "vitamin_C": 26,
+    "calcium": 50,
+    "calories": 17
+  },
+  {
+    "name": "Cần ta",
+    "protein": 1.0,
+    "carbohydrates": 1.5,
+    "fat": 0,
+    "vitamin_C": 6,
+    "calcium": 310,
+    "calories": 10
+  },
+  {
+    "name": "Cần tây",
+    "protein": 3.7,
+    "carbohydrates": 7.9,
+    "fat": 0.2,
+    "vitamin_C": 150,
+    "calcium": 325,
+    "calories": 48
+  },
+  {
+    "name": "Chuối xanh",
+    "protein": 1.2,
+    "carbohydrates": 16.4,
+    "fat": 0.5,
+    "vitamin_C": 31,
+    "calcium": 26,
+    "calories": 74
+  },
+  {
+    "name": "Củ cải đỏ",
+    "protein": 1.3,
+    "carbohydrates": 10.8,
+    "fat": 0,
+    "vitamin_C": 20,
+    "calcium": 28,
+    "calories": 48
+  },
+  {
+    "name": "Củ cải trắng",
+    "protein": 1.5,
+    "carbohydrates": 3.6,
+    "fat": 0.1,
+    "vitamin_C": 30,
+    "calcium": 40,
+    "calories": 21
+  },
+  {
+    "name": "Củ đậu",
+    "protein": 1.0,
+    "carbohydrates": 6.0,
+    "fat": 0,
+    "vitamin_C": 6,
+    "calcium": 8,
+    "calories": 28
+  },
+  {
+    "name": "Dưa chuột",
+    "protein": 0.8,
+    "carbohydrates": 2.9,
+    "fat": 0.1,
+    "vitamin_C": 5,
+    "calcium": 23,
+    "calories": 16
+  },
+  {
+    "name": "Dưa gang",
+    "protein": 0.8,
+    "carbohydrates": 2.0,
+    "fat": 0,
+    "vitamin_C": 4,
+    "calcium": 25,
+    "calories": 11
+  },
+  {
+    "name": "Đậu cô ve",
+    "protein": 5.0,
+    "carbohydrates": 13.3,
+    "fat": 0,
+    "vitamin_C": 25,
+    "calcium": 26,
+    "calories": 73
+  },
+  {
+    "name": "Đậu đũa",
+    "protein": 6.0,
+    "carbohydrates": 7.9,
+    "fat": 0.4,
+    "vitamin_C": 22,
+    "calcium": 47,
+    "calories": 59
+  },
+  {
+    "name": "Thịt bò loại 1",
+    "protein": 21.0,
+    "carbohydrates": 0.0,
+    "fat": 3.8,
+    "vitamin_C": 1,
+    "calcium": 12,
+    "calories": 118
+  },
+  {
+    "name": "Thịt bò loại 2",
+    "protein": 18.0,
+    "carbohydrates": 0.0,
+    "fat": 10.5,
+    "vitamin_C": 1,
+    "calcium": 10,
+    "calories": 167
+  },
+  {
+    "name": "Thịt chó",
+    "protein": 18.0,
+    "carbohydrates": 0.0,
+    "fat": 17.6,
+    "vitamin_C": 0,
+    "calcium": 20,
+    "calories": 230
+  },
+  {
+    "name": "Thịt lợn mỡ",
+    "protein": 14.5,
+    "carbohydrates": 0.0,
+    "fat": 37.3,
+    "vitamin_C": 0,
+    "calcium": 8,
+    "calories": 394
+  },
+  {
+    "name": "Thịt lợn nạc",
+    "protein": 19.0,
+    "carbohydrates": 0.0,
+    "fat": 7.0,
+    "vitamin_C": 1,
+    "calcium": 7,
+    "calories": 139
   }
-
 ]

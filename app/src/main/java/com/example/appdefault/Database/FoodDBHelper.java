@@ -71,8 +71,42 @@ public class FoodDBHelper extends SQLiteOpenHelper {
 
             // Sao chép dữ liệu từ tệp trong thư mục assets
             copyDataFromAssetsToDatabase(db);
+            copyDataFromJsonToDatabase();
         }
     }
+    private void copyDataFromJsonToDatabase() {
+        try {
+            // Mở tệp JSON từ thư mục assets
+            InputStream inputStream = context.getAssets().open("nutrition_data.json");
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            bufferedReader.close();
+
+            // Parse JSON và chèn dữ liệu vào cơ sở dữ liệu
+            JSONArray jsonArray = new JSONArray(stringBuilder.toString());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String foodName = jsonObject.getString("name");
+                double proteinValue = jsonObject.getDouble("protein");
+                double carbohydratesValue = jsonObject.getDouble("carbohydrates");
+                double fatValue = jsonObject.getDouble("fat");
+                double vitaminCValue = jsonObject.getDouble("vitamin_C");
+                double calciumValue = jsonObject.getDouble("calcium");
+                int caloriesValue = jsonObject.getInt("calories");
+
+                // Thực hiện thêm dữ liệu vào cơ sở dữ liệu
+                // ...
+
+            }
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void copyDataFromAssetsToDatabase(SQLiteDatabase db) {
         try {

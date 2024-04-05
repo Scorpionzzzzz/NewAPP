@@ -1,5 +1,7 @@
 package com.example.appdefault.Database;
 
+import static android.app.PendingIntent.getActivity;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -15,7 +17,16 @@ import java.util.List;
 public class MealDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "my_meals.db";
     private static final int DATABASE_VERSION = 1;
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_CALORIES = "calories";
+    public static final String COLUMN_CARBOHYDRATES = "carbohydrates";
+    public static final String COLUMN_FAT = "fat";
+    public static final String COLUMN_PROTEIN = "protein";
+    public static final String COLUMN_TIME = "time";
     private FoodDBHelper foodDBHelper;
+
+
 
     public MealDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

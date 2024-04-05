@@ -127,6 +127,12 @@
             android:padding="12dp"
             android:textColor="#707070"
             android:textSize="18sp" />
+        <Spinner
+            android:id="@+id/spinnerActivityLevel"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="16dp"
+            android:entries="@array/activity_levels"/>
 
         <Button
             android:id="@+id/buttonSaveProfile"
@@ -139,6 +145,8 @@
             android:textSize="25sp"
             android:textStyle="bold"
             android:text="Save" />
+
+
 
 
     </LinearLayout>
