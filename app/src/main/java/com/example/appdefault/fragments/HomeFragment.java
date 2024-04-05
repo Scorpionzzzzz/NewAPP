@@ -14,6 +14,7 @@ import com.example.appdefault.FoodAdapter.Meal;
 import com.example.appdefault.R;
 import com.example.appdefault.FoodAdapter.MealAdapter;
 import com.example.appdefault.Database.MealDBHelper;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,14 +39,25 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        dbHelper = new DBHelper(requireContext());
+        mMealDBHelper = new MealDBHelper(requireContext());
 
+        //thanh tien do
+        double mealCalories = getTotalCaloriesConsumed(); // Hàm này tính tổng số calo từ thực đơn
+        double totalCaloriesOfDay = getTDEEFromDatabase(); // Hàm này tính tổng số calo của ngày
 
+        int percentage = (int) ((mealCalories / totalCaloriesOfDay) * 100);
 
+        // Đặt phần trăm vào CircularProgressIndicator
+        CircularProgressIndicator circularProgressIndicator = view.findViewById(R.id.circularProgressIndicator);
+        circularProgressIndicator.setProgress(percentage);
+
+        //cac view item
         RecyclerView recyclerViewBreakfast = view.findViewById(R.id.recyclerViewBreakfast);
         RecyclerView recyclerViewLunch = view.findViewById(R.id.recyclerViewLunch);
         RecyclerView recyclerViewDinner = view.findViewById(R.id.recyclerViewDinner);
 
-        mMealDBHelper = new MealDBHelper(requireContext());
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         recyclerViewBreakfast.setLayoutManager(layoutManager);
 
@@ -73,7 +85,7 @@ public class HomeFragment extends Fragment {
         textViewProteinOfDay = view.findViewById(R.id.textViewProteinOfDay);
         textViewCarbohydratesOfDay = view.findViewById(R.id.textViewCarbsOfDay);
         textViewFatOfDay = view.findViewById(R.id.textViewFatofDay);
-        dbHelper = new DBHelper(requireContext());
+
 
         // Lấy dữ liệu TDEE từ cơ sở dữ liệu
         int tdee = getTDEEFromDatabase();
@@ -94,6 +106,7 @@ public class HomeFragment extends Fragment {
         textViewCalodanap.setText(String.valueOf(totalCalories));
         return view;
     }
+
 
     private int getTDEEFromDatabase() {
         int tdee = 0;
