@@ -58,28 +58,17 @@
         android:background="#eef2f5"
         >
 
-        <Button
-            android:id="@+id/Buttonsuathongtin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
-            android:text="Thông tin cá nhân"
-            android:backgroundTint="#eef2f5"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            />
+
         <RelativeLayout
             android:id="@+id/RelativeLayoutBMI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/Buttonsuathongtin"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="22dp"
-            android:layout_marginTop="-5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="22dp"
             android:layout_marginBottom="402dp"
             android:background="@drawable/bo_tron_goc"
@@ -142,7 +131,7 @@
 
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:id="@+id/textView13"
+                android:id="@+id/Buttonsuathongtin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textViewLich"
