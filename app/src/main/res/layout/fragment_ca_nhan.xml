@@ -65,12 +65,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="22dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="22dp"
-            android:layout_marginBottom="402dp"
+
             android:background="@drawable/bo_tron_goc"
             >
 
@@ -103,31 +102,34 @@
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
+
             <TextView
                 android:id="@+id/textHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/textView123"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
                 android:text="0 cm"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/textView123"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_above= "@id/textHeight"
+                android:layout_below="@+id/textBMI"
+                android:layout_gravity="bottom"
                 android:layout_marginStart="30dp"
-                android:layout_marginBottom="-50dp"
+                android:layout_marginTop="30dp"
                 android:text="Height"
                 android:textColor="#6A6969"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
 
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -150,9 +152,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/textView123"
                 android:layout_marginEnd="51dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginTop="5dp"
                 android:text="0 kg"
                 android:textColor="@color/black"
                 android:textSize="20dp"
@@ -162,10 +164,10 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/textWeight"
+                android:layout_below="@+id/textBMI"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="38dp"
-                android:layout_marginBottom="-50dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="30dp"
                 android:text="Weight"
                 android:textColor="#6A6969"
                 android:textSize="20sp"
@@ -207,21 +209,19 @@
             android:layout_alignStart="@+id/relativeLayoutWater"
             android:layout_alignTop="@+id/relativeLayoutWater"
             android:layout_marginStart="30dp"
-
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:text="0 ml"
             android:textColor="@color/red"
             android:textSize="30dp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/relativeLayoutWater"
+            android:layout_below="@+id/textViewWaterOfDay"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="360dp"
-            android:layout_marginEnd="180dp"
-            android:layout_marginBottom="250dp"
+            android:layout_marginTop="5dp"
             android:text="Lượng nước bạn cần uống"
             android:textColor="@color/black"
             android:textSize="15dp"
@@ -231,11 +231,9 @@
             android:id="@+id/textViewNhacnho"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/RelativeLayoutBMI"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="259dp"
+            android:layout_marginTop="20dp"
             android:text="Bạn nên uống bao nhiêu nước"
             android:textColor="@color/black"
             android:textSize="20dp"
