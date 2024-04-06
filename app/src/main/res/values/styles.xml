@@ -1,23 +1,17 @@
 <resources>
-
-
     <style name="AppTheme" parent="Theme.MaterialComponents.Light">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--  Customize your theme here.  -->
+        <item name="colorPrimary">@color/darkgreen</item>
+        <item name="colorPrimaryDark">@color/green</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
-    <!-- Style without ActionBar -->
+    <!--  Style without ActionBar  -->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button">
         <item name="android:backgroundTint">@color/colorButton</item>
-        <!-- Các thuộc tính màu sắc khác nếu cần -->
+        <!--  Các thuộc tính màu sắc khác nếu cần  -->
     </style>
-
-
 </resources>

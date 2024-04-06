@@ -34,7 +34,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:fontFamily="sans-serif"
-            android:text="Food"
+            android:text="Thực Phẩm"
             android:textColor="#fff"
             android:textSize="30dp"
             android:textStyle="bold"
@@ -49,7 +49,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="110dp"
         android:layout_marginEnd="16dp"
-        android:hint="Search food" />
+        android:hint="Tìm kiếm thực phẩm" />
 
     <ImageButton
         android:id="@+id/buttonSearchRecipes"
@@ -66,7 +66,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewRecipes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/editTextSearch"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"

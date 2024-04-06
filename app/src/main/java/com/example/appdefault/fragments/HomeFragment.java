@@ -6,15 +6,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.example.appdefault.Database.DBHelper;
 import com.example.appdefault.FoodAdapter.Meal;
 import com.example.appdefault.R;
 import com.example.appdefault.FoodAdapter.MealAdapter;
 import com.example.appdefault.Database.MealDBHelper;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +41,9 @@ public class HomeFragment extends Fragment {
     private TextView textViewProteinOfDay;
     private TextView textViewCarbohydratesOfDay;
     private TextView textViewFatOfDay;
+    private LinearProgressIndicator linearProgressIndicatorProtein;
+    private LinearProgressIndicator linearProgressIndicatorCarbohydrate;
+    private LinearProgressIndicator linearProgressIndicatorFat;
     private DBHelper dbHelper;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,9 +58,18 @@ public class HomeFragment extends Fragment {
 
         int percentage = (int) ((mealCalories / totalCaloriesOfDay) * 100);
 
+
         // Đặt phần trăm vào CircularProgressIndicator
         CircularProgressIndicator circularProgressIndicator = view.findViewById(R.id.circularProgressIndicator);
         circularProgressIndicator.setProgress(percentage);
+
+        linearProgressIndicatorProtein = view.findViewById(R.id.linearProgressIndicator);
+        linearProgressIndicatorCarbohydrate = view.findViewById(R.id.linearProgressIndicator2);
+        linearProgressIndicatorFat = view.findViewById(R.id.linearProgressIndicator3);
+
+
+
+
 
         //cac view item
         RecyclerView recyclerViewBreakfast = view.findViewById(R.id.recyclerViewBreakfast);
@@ -58,8 +77,15 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerViewDinner = view.findViewById(R.id.recyclerViewDinner);
 
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
-        recyclerViewBreakfast.setLayoutManager(layoutManager);
+        // Tạo LayoutManager riêng cho mỗi RecyclerView
+        LinearLayoutManager layoutManagerBreakfast = new LinearLayoutManager(requireContext());
+        LinearLayoutManager layoutManagerLunch = new LinearLayoutManager(requireContext());
+        LinearLayoutManager layoutManagerDinner = new LinearLayoutManager(requireContext());
+
+        // Thiết lập LayoutManager cho từng RecyclerView
+        recyclerViewBreakfast.setLayoutManager(layoutManagerBreakfast);
+        recyclerViewLunch.setLayoutManager(layoutManagerLunch);
+        recyclerViewDinner.setLayoutManager(layoutManagerDinner);
 
         // Load meals for breakfast
         List<Meal> breakfastList = mMealDBHelper.getMealsByType("Bữa sáng");
@@ -87,8 +113,10 @@ public class HomeFragment extends Fragment {
         textViewFatOfDay = view.findViewById(R.id.textViewFatofDay);
 
 
-        // Lấy dữ liệu TDEE từ cơ sở dữ liệu
+
+        // Cacs so lieu
         int tdee = getTDEEFromDatabase();
+
         double proteinOfDay = getProteinFromDatabase();
         double carbohydratesOfDay = getCarbohydratesFromDatabase();
         double fatOfDay = getFatFromDatabase();
@@ -96,6 +124,9 @@ public class HomeFragment extends Fragment {
         double totalProtein = getTotalProteinConsumed();
         double totalCarbohydrates = getTotalCarbohydratesConsumed();
         double totalFats = getTotalFatsConsumed();
+        double proteinProgress = (totalProtein/proteinOfDay)*100;
+        double carbohydrateProgress = (totalCarbohydrates/carbohydratesOfDay)*100;
+        double fatProgress = (totalFats/fatOfDay)*100;
         textViewCaloOfDay.setText("of " + tdee + " kcal");
         textViewProteinOfDay.setText("of " + proteinOfDay);
         textViewCarbohydratesOfDay.setText("of " + carbohydratesOfDay);
@@ -104,8 +135,67 @@ public class HomeFragment extends Fragment {
         textViewCarbohydrates.setText(String.valueOf(totalCarbohydrates));
         textViewFat.setText(String.valueOf(totalFats));
         textViewCalodanap.setText(String.valueOf(totalCalories));
+        linearProgressIndicatorProtein.setProgress((int) proteinProgress);
+        linearProgressIndicatorCarbohydrate.setProgress((int) carbohydrateProgress);
+        linearProgressIndicatorFat.setProgress((int) fatProgress);
+
+        MaterialButton buttonResetBreakfast = view.findViewById(R.id.buttonResetBreafast);
+        MaterialButton buttonResetLunch = view.findViewById(R.id.buttonResetLunch);
+        MaterialButton buttonResetDinner = view.findViewById(R.id.buttonResetDinner);
+        buttonResetBreakfast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Gọi phương thức để xóa thực đơn bữa sáng từ adapter
+                resetBreakfastMenu();
+            }
+        });
+        buttonResetLunch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Gọi phương thức để xóa thực đơn bữa trưa từ adapter
+                resetLunchMenu();
+                }
+        });
+        buttonResetDinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Gọi phương thức để xóa thực đơn bữa tối từ adapter
+                resetDinnerMenu();
+            }
+            });
+
+
+
         return view;
     }
+    private void resetBreakfastMenu() {
+        // Xóa thực đơn bữa sáng từ adapter
+        deleteBreakfastMenuFromDatabase();
+        mBreakfastAdapter.clearMenu();
+    }
+    private void resetLunchMenu() {
+        // Xóa thực đơn bữa trưa từ adapter
+        deleteLunchMenuFromDatabase();
+        mLunchAdapter.clearMenu();
+    }
+    private void resetDinnerMenu() {
+        // Xóa thực đơn bữa tối từ adapter
+        deleteDinnerMenuFromDatabase();
+        mDinnerAdapter.clearMenu();
+    }
+    private void deleteBreakfastMenuFromDatabase() {
+        // Thực hiện xóa thực đơn bữa sáng từ cơ sở dữ liệu
+        mMealDBHelper.deleteMealsByType("Bữa sáng");
+    }
+    private void deleteLunchMenuFromDatabase() {
+        // Thực hiện xóa thực đơn bữa trưa từ cơ sở dữ liệu
+        mMealDBHelper.deleteMealsByType("Bữa trưa");
+    }
+    private void deleteDinnerMenuFromDatabase() {
+        // Thực hiện xóa thực đơn bữa tối từ cơ sở dữ liệu
+        mMealDBHelper.deleteMealsByType("Bữa tối");
+    }
+
 
 
     private int getTDEEFromDatabase() {
@@ -310,6 +400,7 @@ public class HomeFragment extends Fragment {
         totalFats = Math.round(totalFats*100)/100.0;
         return totalFats;
     }
+
 
 }
 

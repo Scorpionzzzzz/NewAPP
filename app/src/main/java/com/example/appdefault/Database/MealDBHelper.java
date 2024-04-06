@@ -67,6 +67,13 @@ public class MealDBHelper extends SQLiteOpenHelper {
             // Xử lý trường hợp không tìm thấy món ăn
         }
     }
+    public void deleteMealsByType(String mealType) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("meals", "time = ?", new String[]{mealType});
+        db.close();
+    }
+
+
 
     private void insertMeal(String name, int calories, double carbohydrates, double fat, double protein, String time) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -105,6 +112,11 @@ public class MealDBHelper extends SQLiteOpenHelper {
         db.close();
 
         return mealList;
+    }
+    public void removeMealByName(String mealName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("meals", "name=?", new String[]{mealName});
+        db.close();
     }
 
 }

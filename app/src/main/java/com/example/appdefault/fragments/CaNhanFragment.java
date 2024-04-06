@@ -32,6 +32,7 @@ public class CaNhanFragment extends Fragment {
     private DBHelper dbHelper;
     private TextView textWaterOfDay;
     private TextView textViewLich;
+    private TextView textYourName;
 
     private Handler handler;
 
@@ -56,6 +57,7 @@ public class CaNhanFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_ca_nhan, container, false);
 
         // Ánh xạ TextView cho chiều cao và cân nặng
+        textYourName = rootView.findViewById(R.id.textYourName);
         textHeight = rootView.findViewById(R.id.textHeight);
         textWeight = rootView.findViewById(R.id.textWeight);
         textBMI = rootView.findViewById(R.id.textBMI);
@@ -111,6 +113,9 @@ public class CaNhanFragment extends Fragment {
         Cursor cursor = dbHelper.getProfileData();
         if (cursor != null && cursor.moveToFirst()) {
             // Lấy thông tin chiều cao và cân nặng từ Cursor
+            int nameIndex = cursor.getColumnIndex(DBHelper.COLUMN_NAME);
+            String name = cursor.getString(nameIndex);
+            textYourName.setText(name);
             int heightIndex = cursor.getColumnIndex(DBHelper.COLUMN_HEIGHT);
             int weightIndex = cursor.getColumnIndex(DBHelper.COLUMN_WEIGHT);
             int height = cursor.getInt(heightIndex);

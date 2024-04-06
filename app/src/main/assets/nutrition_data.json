@@ -27,7 +27,7 @@
     "calories": 344
   },
   {
-    "name": "Gọa tẻ máy",
+    "name": "Gạo tẻ máy",
     "protein": 7.9,
     "carbohydrates": 75.9,
     "fat": 1.0,
@@ -657,18 +657,18 @@
     "calories": 12
   },
   {
-    "name": "Bí ngô",
-    "protein": 0.3,
-    "carbohydrates": 6.1,
-    "fat": 0.1,
-    "vitamin_C": 8,
-    "calcium": 24,
-    "calories": 27
+    "name": "Thịt bò loại 1",
+    "protein": 21.0,
+    "carbohydrates": 0.0,
+    "fat": 3.8,
+    "vitamin_C": 1,
+    "calcium": 12,
+    "calories": 118
   },
   {
     "name": "Cà chua",
     "protein": 0.6,
-    "carbohydrates ": 4.0,
+    "carbohydrates": 4.0,
     "fat": 0.2,
     "vitamin_C": 40,
     "calcium": 12,
@@ -828,15 +828,6 @@
     "calories": 59
   },
   {
-    "name": "Thịt bò loại 1",
-    "protein": 21.0,
-    "carbohydrates": 0.0,
-    "fat": 3.8,
-    "vitamin_C": 1,
-    "calcium": 12,
-    "calories": 118
-  },
-  {
     "name": "Thịt bò loại 2",
     "protein": 18.0,
     "carbohydrates": 0.0,
@@ -871,5 +862,14 @@
     "vitamin_C": 1,
     "calcium": 7,
     "calories": 139
+  },
+  {
+    "name": "Bí ngô",
+    "protein": 0.3,
+    "carbohydrates": 6.1,
+    "fat": 0.1,
+    "vitamin_C": 8,
+    "calcium": 24,
+    "calories": 27
   }
 ]

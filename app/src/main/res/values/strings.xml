@@ -7,4 +7,12 @@
         <item>Năng động (6-7 ngày/tuần)</item>
         <item>Cực kỳ năng động (Hoạt động nặng, thể dục 2 lần/ngày)</item>
     </string-array>
+    <string-array name="wishes">
+        <item>Duy trì cân nặng</item>
+        <item>Tăng cân nhẹ (0.5-1kg/tháng) </item>
+        <item>Tăng cân vừa (1-2kg/tháng)</item>
+        <item>Giảm cân nhẹ (0.5-1kg/tháng)</item>
+        <item>Giảm cân vừa (1-2kg/tháng)</item>
+    </string-array>
+
 </resources>

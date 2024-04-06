@@ -8,31 +8,18 @@
     android:paddingVertical="10dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
-    android:background="@drawable/bo_tron_goc">
+    android:background="@drawable/border_meal">
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_box_rounded_16"
-        android:backgroundTint="#eef2f5"
-        android:padding="8dp"
-        android:text="🍊"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:text="Orange juice"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
