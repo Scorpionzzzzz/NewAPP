@@ -64,8 +64,8 @@ public class HomeFragment extends Fragment {
         circularProgressIndicator.setProgress(percentage);
 
         linearProgressIndicatorProtein = view.findViewById(R.id.linearProgressIndicator);
-        linearProgressIndicatorCarbohydrate = view.findViewById(R.id.linearProgressIndicator2);
-        linearProgressIndicatorFat = view.findViewById(R.id.linearProgressIndicator3);
+        linearProgressIndicatorCarbohydrate = view.findViewById(R.id.linearProgressIndicator3);
+        linearProgressIndicatorFat = view.findViewById(R.id.linearProgressIndicator2);
 
 
 
