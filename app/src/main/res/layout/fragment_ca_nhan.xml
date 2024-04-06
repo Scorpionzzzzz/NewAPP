@@ -115,7 +115,7 @@
                 android:layout_gravity="bottom"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
-                android:text="Height"
+                android:text="Chiều cao"
                 android:textColor="#6A6969"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -156,7 +156,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="40dp"
                 android:layout_marginTop="30dp"
-                android:text="Weight"
+                android:text="Cân nặng"
                 android:textColor="#6A6969"
                 android:textSize="20sp"
                 android:textStyle="bold" />
