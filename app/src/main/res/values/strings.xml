@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">meal</string>
+    <string name="app_name">Nutrition</string>
     <string-array name="activity_levels">
         <item>Không có hoặc ít vận động</item>
         <item>Ít vận động (1-3 ngày/tuần)</item>
