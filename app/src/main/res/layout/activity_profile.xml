@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -30,19 +29,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_below="@+id/imageView"
         android:layout_marginTop="0dp"
-        android:padding="32dp"
+        android:padding="16dp"
         >
 
         <TextView
+            android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:text="Tên"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -50,29 +51,31 @@
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:textSize="18sp"
-            android:padding="12dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv1"
             android:layout_marginTop="5dp"
-            android:textColor="#707070"
-            android:ems="10"
             android:background="@drawable/text_bg"
+            android:ems="10"
+            android:hint="Enter your name"
             android:inputType="text"
-            android:hint="Enter your name" />
+            android:padding="12dp"
+            android:textColor="#707070"
+            android:textSize="18sp" />
 
         <TextView
-
+            android:id="@+id/tv2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Age"
+            android:text="Tuổi"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@+id/editTextName" />
 
         <EditText
             android:id="@+id/editTextAge"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textSize="18sp"
             android:padding="12dp"
             android:layout_marginTop="5dp"
@@ -80,21 +83,23 @@
             android:ems="10"
             android:background="@drawable/text_bg"
             android:inputType="text"
-            android:hint="Enter your age" />
+            android:hint="Enter your age"
+            android:layout_below="@+id/tv2" />
 
         <TextView
-
+            android:id="@+id/tv3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Height"
+            android:text="Chiều cao"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@+id/editTextAge" />
 
         <EditText
             android:id="@+id/editTextHeight"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@drawable/text_bg"
             android:ems="10"
@@ -102,21 +107,23 @@
             android:inputType="text"
             android:padding="12dp"
             android:textColor="#707070"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_below="@+id/tv3" />
 
         <TextView
-
+            android:id="@+id/tv4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Weight"
+            android:text="Cân nặng"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@+id/editTextHeight" />
 
         <EditText
             android:id="@+id/editTextWeight"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@drawable/text_bg"
             android:ems="10"
@@ -124,13 +131,26 @@
             android:inputType="text"
             android:padding="12dp"
             android:textColor="#707070"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_below="@+id/tv4" />
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tần suất hoạt động"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/editTextWeight" />
+
         <Spinner
             android:id="@+id/spinnerActivityLevel"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginTop="16dp"
-            android:entries="@array/activity_levels"/>
+            android:layout_marginTop="5dp"
+            android:entries="@array/activity_levels"
+            android:layout_below="@+id/tv5"
+            android:background="@drawable/text_bg"/>
 
         <Button
             android:id="@+id/buttonSaveProfile"
@@ -142,10 +162,33 @@
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:text="Save" />
+            android:text="Save"
+            android:layout_below="@+id/spinnerActivityLevel"/>
 
+        <RadioGroup
+            android:id="@+id/radioGroupGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv2"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/editTextAge"
+            android:orientation="horizontal">
 
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
+                android:text="Nam" />
 
-    </LinearLayout>
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Nữ" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
 </RelativeLayout>
