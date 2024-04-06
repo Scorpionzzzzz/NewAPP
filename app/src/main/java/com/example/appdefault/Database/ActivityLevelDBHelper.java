@@ -43,32 +43,4 @@ public class ActivityLevelDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // Thêm một mức độ hoạt động mới
-    public void addActivityLevel(int activityLevel, double multiplierProtein, double multiplierFat, double multiplierCarbohydrate) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_ACTIVITY_LEVEL, activityLevel);
-        values.put(COLUMN_MULTIPLIER_PROTEIN, multiplierProtein);
-        values.put(COLUMN_MULTIPLIER_FAT, multiplierFat);
-        values.put(COLUMN_MULTIPLIER_CARBOHYDRATE, multiplierCarbohydrate);
-        db.insert(TABLE_ACTIVITY_LEVEL, null, values);
-        db.close();
-    }
-
-    // Đọc mức độ hoạt động từ cơ sở dữ liệu
-    public double getProteinMultiplier(int activityLevel) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        double multiplier = 0;
-        Cursor cursor = db.query(TABLE_ACTIVITY_LEVEL, new String[]{COLUMN_MULTIPLIER_PROTEIN},
-                COLUMN_ACTIVITY_LEVEL + "=?", new String[]{String.valueOf(activityLevel)},
-                null, null, null);
-        if (cursor != null && cursor.moveToFirst()) {
-            multiplier = cursor.getDouble(cursor.getColumnIndex(COLUMN_MULTIPLIER_PROTEIN));
-            cursor.close();
-        }
-        db.close();
-        return multiplier;
-    }
-
-    // Tương tự cho bội số cho chất béo và carbohydrate
 }

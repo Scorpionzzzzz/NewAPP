@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class   DatabaseHelper extends SQLiteOpenHelper {
 
     private static String DB_PATH = "/data/data/com.example.appdefault/databases/";
     private static String DB_NAME = "nutrition_database.db";

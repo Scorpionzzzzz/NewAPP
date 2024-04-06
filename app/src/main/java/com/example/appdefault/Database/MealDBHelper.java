@@ -113,10 +113,5 @@ public class MealDBHelper extends SQLiteOpenHelper {
 
         return mealList;
     }
-    public void removeMealByName(String mealName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete("meals", "name=?", new String[]{mealName});
-        db.close();
-    }
 
 }
