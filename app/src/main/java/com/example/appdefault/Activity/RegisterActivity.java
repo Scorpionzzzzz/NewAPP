@@ -76,13 +76,14 @@ public class RegisterActivity extends AppCompatActivity {
         values.put(DBHelper.COLUMN_USERNAME, username);
         values.put(DBHelper.COLUMN_PASSWORD, password);
 
-        long newRowId = db.insert(DBHelper.TABLE_USER, null, values);
+        long newRowId = db.insert(DBHelper.TABLE_PROFILE, null, values);
 
         // Kiểm tra xem việc thêm dữ liệu có thành công hay không
         if (newRowId == -1) {
             Toast.makeText(this, "Error saving user", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void startLoginActivity() {
         Intent intent = new Intent(this, LoginActivity.class);

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appdefault.Database.DBHelper;
+import com.example.appdefault.MyApp;
 import com.example.appdefault.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -50,12 +51,17 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    // Trong phương thức xử lý đăng nhập của bạn
     private void handleLogin() {
         String username = editTextUsername.getText().toString();
         String password = editTextPassword.getText().toString();
 
         // Thực hiện xác thực đăng nhập với cơ sở dữ liệu
         if (isValidLogin(username, password)) {
+            // Xác định người dùng hiện tại và lưu ID của họ
+            long userId = getUserIdByUsername(username);
+            setCurrentUserId(userId);
+
             // Đăng nhập thành công, chuyển sang MainActivity
             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
             startMainActivity();
@@ -65,6 +71,34 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    // Phương thức để lấy ID của người dùng dựa trên tên đăng nhập
+    private long getUserIdByUsername(String username) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] columns = {DBHelper.COLUMN_ID};
+        String selection = DBHelper.COLUMN_USERNAME + " = ?";
+        String[] selectionArgs = {username};
+
+        Cursor cursor = db.query(DBHelper.TABLE_PROFILE, columns, selection, selectionArgs, null, null, null);
+
+        long userId = -1; // Giá trị mặc định nếu không tìm thấy ID
+
+        if (cursor != null && cursor.moveToFirst()) {
+            userId = cursor.getLong(cursor.getColumnIndex(DBHelper.COLUMN_ID));
+            cursor.close();
+        }
+
+        db.close();
+        return userId;
+    }
+
+    // Phương thức để lưu ID của người dùng hiện tại
+    private void setCurrentUserId(long userId) {
+        // Lưu ID của người dùng hiện tại vào một biến toàn cục hoặc lớp đặc biệt
+        // Ví dụ:
+        MyApp.setCurrentUserId(userId);
+    }
+
+
     private boolean isValidLogin(String username, String password) {
         // Kiểm tra thông tin đăng nhập với cơ sở dữ liệu
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -72,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
         String selection = DBHelper.COLUMN_USERNAME + " = ? AND " + DBHelper.COLUMN_PASSWORD + " = ?";
         String[] selectionArgs = {username, password};
 
-        Cursor cursor = db.query(DBHelper.TABLE_USER, columns, selection, selectionArgs, null, null, null);
+        Cursor cursor = db.query(DBHelper.TABLE_PROFILE, columns, selection, selectionArgs, null, null, null);
 
         boolean isValid = cursor.getCount() > 0;
 
@@ -81,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 
         return isValid;
     }
+
 
     private void startMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
