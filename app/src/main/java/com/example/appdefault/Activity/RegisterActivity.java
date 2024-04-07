@@ -45,6 +45,12 @@ public class RegisterActivity extends AppCompatActivity {
         String newUsername = editTextNewUsername.getText().toString();
         String newPassword = editTextNewPassword.getText().toString();
 
+        // Kiểm tra mật khẩu có đủ dài không
+        if (newPassword.length() <= 6) {
+            Toast.makeText(this, "Mật khẩu phải có ít nhất 6 kí tự.", Toast.LENGTH_SHORT).show();
+            return; // Kết thúc phương thức nếu mật khẩu không đủ dài
+        }
+
         // Kiểm tra xem tên đăng nhập đã tồn tại chưa
         if (isUsernameExist(newUsername)) {
             Toast.makeText(this, "Tên đăng nhập đã tồn tại.", Toast.LENGTH_SHORT).show();
@@ -55,6 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
             startLoginActivity();
         }
     }
+
 
     private boolean isUsernameExist(String username) {
         // Thực hiện kiểm tra xem tên đăng nhập đã tồn tại trong cơ sở dữ liệu chưa

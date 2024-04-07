@@ -210,7 +210,7 @@
             android:layout_alignStart="@+id/textViewWaterOfDay"
             android:layout_marginStart="0dp"
             android:layout_marginTop="5dp"
-            android:text="Lượng nước bạn cần uống"
+            android:text="Lượng nước tối thiểu bạn cần uống"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="" />
