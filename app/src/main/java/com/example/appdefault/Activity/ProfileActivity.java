@@ -114,7 +114,7 @@ public class ProfileActivity extends AppCompatActivity {
             case "Không có hoặc ít vận động":
                 tdee = 1.2 * bmr;
                 break;
-            case "Nhẹ (1-3 ngày/tuần)":
+            case "Ít vận động (1-3 ngày/tuần)":
                 tdee = 1.375 * bmr;
                 break;
             case "Vừa phải (3-5 ngày/tuần)":
