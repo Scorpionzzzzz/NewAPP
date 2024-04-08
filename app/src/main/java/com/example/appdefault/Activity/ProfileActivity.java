@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appdefault.Database.DBHelper;
+import com.example.appdefault.MyApp;
 import com.example.appdefault.R;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -73,21 +74,20 @@ public class ProfileActivity extends AppCompatActivity {
 
             // Tính toán TDEE dựa trên BMR và mức độ vận động
             double tdee = calculateTDEE(bmr, activityLevel);
-            double protein = calculateProtein(Double.parseDouble(weight),activityLevel);
+            double protein = calculateProtein(Double.parseDouble(weight), activityLevel);
             double carbohydrates = calculateCarbohydrates(tdee);
             double fats = calculateFats(tdee);
 
-            // Lấy bội số cho protein, carbohydrate và fat từ các Spinner
-
+            // Lấy ID người dùng hiện tại
+            long currentUserId = MyApp.getCurrentUserId(); // Thay MyApp bằng lớp quản lý người dùng của bạn
 
             // Cập nhật hoặc lưu thông tin vào cơ sở dữ liệu
-            if (dbHelper.hasProfileData()) {
+            if (dbHelper.hasProfileData(currentUserId)) {
                 // Nếu có thông tin trong database, thực hiện cập nhật
-                dbHelper.updateProfile(name, age, height, weight, Double.toString(tdee),Double.toString(protein),Double.toString(carbohydrates),Double.toString(fats));
+                dbHelper.updateProfile(currentUserId, name, age, height, weight, Double.toString(tdee), Double.toString(protein), Double.toString(carbohydrates), Double.toString(fats));
             } else {
                 // Nếu chưa có thông tin trong database, thực hiện lưu mới
-                dbHelper.deleteProfile();
-                dbHelper.saveProfile(name, age, height, weight, Double.toString(tdee),Double.toString(protein),Double.toString(carbohydrates),Double.toString(fats));
+                dbHelper.saveProfile(currentUserId, name, age, height, weight, Double.toString(tdee), Double.toString(protein), Double.toString(carbohydrates), Double.toString(fats));
             }
 
             // Hiển thị thông báo hoặc chuyển về màn hình khác nếu cần
@@ -95,6 +95,7 @@ public class ProfileActivity extends AppCompatActivity {
             finish(); // Đóng màn hình ProfileActivity
         }
     }
+
 
 
     private double calculateBMR(double weight, double height, int age) {
@@ -137,7 +138,7 @@ public class ProfileActivity extends AppCompatActivity {
             case "Không có hoặc ít vận động":
                 protein = 0.5 * weight; // 0.5 gram protein / pound cơ thể
                 break;
-            case "Nhẹ (1-3 ngày/tuần)":
+            case "Ít vận động (1-3 ngày/tuần)":
                 protein = 0.75 * weight; // 0.75 gram protein / pound cơ thể
                 break;
             case "Vừa phải (3-5 ngày/tuần)":

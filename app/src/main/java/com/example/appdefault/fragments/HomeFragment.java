@@ -1,5 +1,6 @@
 package com.example.appdefault.fragments;
 
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.example.appdefault.Database.DBHelper;
 import com.example.appdefault.FoodAdapter.Meal;
+import com.example.appdefault.MyApp;
 import com.example.appdefault.R;
 import com.example.appdefault.FoodAdapter.MealAdapter;
 import com.example.appdefault.Database.MealDBHelper;
@@ -45,6 +47,7 @@ public class HomeFragment extends Fragment {
     private LinearProgressIndicator linearProgressIndicatorCarbohydrate;
     private LinearProgressIndicator linearProgressIndicatorFat;
     private DBHelper dbHelper;
+    long currentUserId = MyApp.getCurrentUserId();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -204,104 +207,106 @@ public class HomeFragment extends Fragment {
         // Mở kết nối đến cơ sở dữ liệu
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        // Thiết lập các cột bạn muốn truy vấn
-        String[] projection = {DBHelper.COLUMN_TDEE};
-
-        // Sử dụng query để thực hiện truy vấn
-        Cursor cursor = db.query(DBHelper.TABLE_PROFILE, projection, null, null, null, null, null);
+        // Lấy dữ liệu từ cơ sở dữ liệu
+        Cursor cursor = dbHelper.getProfileData(currentUserId);
 
         // Kiểm tra xem có dữ liệu trong cursor không và di chuyển con trỏ đến hàng đầu tiên
         if (cursor != null && cursor.moveToFirst()) {
-            // Lấy giá trị TDEE từ cột tương ứng trong bảng
-            tdee = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_TDEE));
-
-            // Đóng cursor sau khi sử dụng
-            cursor.close();
+            // Lấy giá trị TDEE từ cột tương ứng trong Cursor
+            int tdeeIndex = cursor.getColumnIndexOrThrow(DBHelper.COLUMN_TDEE);
+            tdee = cursor.getInt(tdeeIndex);
         }
 
-        // Đóng kết nối đến cơ sở dữ liệu
+        // Đóng Cursor và kết nối đến cơ sở dữ liệu sau khi sử dụng
+        if (cursor != null) {
+            cursor.close();
+        }
         db.close();
 
         return tdee;
     }
+
+// Tương tự cho các phương thức getProteinFromDatabase(), getCarbohydratesFromDatabase(), và getFatFromDatabase()
+
     private double getProteinFromDatabase() {
         double protein = 0;
 
         // Mở kết nối đến cơ sở dữ liệu
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        // Thiết lập các cột bạn muốn truy vấn
-        String[] projection = {DBHelper.COLUMN_PROTEIN_OF_DAY};
-
-        // Sử dụng query để thực hiện truy vấn
-        Cursor cursor = db.query(DBHelper.TABLE_PROFILE, projection, null, null, null, null, null);
+        // Lấy dữ liệu từ cơ sở dữ liệu
+        Cursor cursor = dbHelper.getProfileData(currentUserId);
 
         // Kiểm tra xem có dữ liệu trong cursor không và di chuyển con trỏ đến hàng đầu tiên
         if (cursor != null && cursor.moveToFirst()) {
-            // Lấy giá trị protein từ cột tương ứng trong bảng
-            protein = cursor.getDouble(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_PROTEIN_OF_DAY));
-
-            // Đóng cursor sau khi sử dụng
-            cursor.close();
+            // Lấy giá trị protein từ cột tương ứng trong Cursor
+            int proteinIndex = cursor.getColumnIndexOrThrow(DBHelper.COLUMN_PROTEIN_OF_DAY);
+            protein = cursor.getDouble(proteinIndex);
         }
 
-        // Đóng kết nối đến cơ sở dữ liệu
+        // Đóng Cursor và kết nối đến cơ sở dữ liệu sau khi sử dụng
+        if (cursor != null) {
+            cursor.close();
+        }
         db.close();
 
         return protein;
     }
+
+// Tương tự cho getCarbohydratesFromDatabase() và getFatFromDatabase()
+
     private double getCarbohydratesFromDatabase() {
-        double carbohydrates  = 0;
+        double carbohydrates = 0;
 
         // Mở kết nối đến cơ sở dữ liệu
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        // Thiết lập các cột bạn muốn truy vấn
-        String[] projection = {DBHelper.COLUMN_CARBOHYDRATE_OF_DAY};
-
-        // Sử dụng query để thực hiện truy vấn
-        Cursor cursor = db.query(DBHelper.TABLE_PROFILE, projection, null, null, null, null, null);
+        // Lấy dữ liệu từ cơ sở dữ liệu
+        Cursor cursor = dbHelper.getProfileData(currentUserId);
 
         // Kiểm tra xem có dữ liệu trong cursor không và di chuyển con trỏ đến hàng đầu tiên
         if (cursor != null && cursor.moveToFirst()) {
-            // Lấy giá trị protein từ cột tương ứng trong bảng
-            carbohydrates  = cursor.getDouble(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_CARBOHYDRATE_OF_DAY));
-
-            // Đóng cursor sau khi sử dụng
-            cursor.close();
+            // Lấy giá trị carbohydrates từ cột tương ứng trong Cursor
+            int carbohydratesIndex = cursor.getColumnIndexOrThrow(DBHelper.COLUMN_CARBOHYDRATE_OF_DAY);
+            carbohydrates = cursor.getDouble(carbohydratesIndex);
         }
 
-        // Đóng kết nối đến cơ sở dữ liệu
+        // Đóng Cursor và kết nối đến cơ sở dữ liệu sau khi sử dụng
+        if (cursor != null) {
+            cursor.close();
+        }
         db.close();
 
         return carbohydrates;
     }
+
+
     private double getFatFromDatabase() {
-        double fat  = 0;
+        double fat = 0;
 
         // Mở kết nối đến cơ sở dữ liệu
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        // Thiết lập các cột bạn muốn truy vấn
-        String[] projection = {DBHelper.COLUMN_FAT_OF_DAY};
-
-        // Sử dụng query để thực hiện truy vấn
-        Cursor cursor = db.query(DBHelper.TABLE_PROFILE, projection, null, null, null, null, null);
+        // Lấy dữ liệu từ cơ sở dữ liệu
+        Cursor cursor = dbHelper.getProfileData(currentUserId);
 
         // Kiểm tra xem có dữ liệu trong cursor không và di chuyển con trỏ đến hàng đầu tiên
         if (cursor != null && cursor.moveToFirst()) {
-            // Lấy giá trị protein từ cột tương ứng trong bảng
-            fat  = cursor.getDouble(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_FAT_OF_DAY));
-
-            // Đóng cursor sau khi sử dụng
-            cursor.close();
+            // Lấy giá trị fat từ cột tương ứng trong Cursor
+            int fatIndex = cursor.getColumnIndexOrThrow(DBHelper.COLUMN_FAT_OF_DAY);
+            fat = cursor.getDouble(fatIndex);
         }
 
-        // Đóng kết nối đến cơ sở dữ liệu
+        // Đóng Cursor và kết nối đến cơ sở dữ liệu sau khi sử dụng
+        if (cursor != null) {
+            cursor.close();
+        }
         db.close();
 
         return fat;
     }
+
+
 
 
     public int getTotalCaloriesConsumed() {
@@ -400,7 +405,5 @@ public class HomeFragment extends Fragment {
         totalFats = Math.round(totalFats*100)/100.0;
         return totalFats;
     }
-
-
 }
 

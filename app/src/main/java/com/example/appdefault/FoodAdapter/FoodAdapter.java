@@ -26,6 +26,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     private Context context;
     private MealDBHelper mealDBHelper;
 
+
     public FoodAdapter(List<FoodItem> foodItems, Context context) {
         this.foodItems = foodItems;
         this.context = context;

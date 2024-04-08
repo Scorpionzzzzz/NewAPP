@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.example.appdefault.Activity.ProfileActivity;
 import com.example.appdefault.Caculator;
 import com.example.appdefault.Database.DBHelper;
+import com.example.appdefault.MyApp;
 import com.example.appdefault.R;
 
 import java.text.SimpleDateFormat;
@@ -109,44 +110,58 @@ public class CaNhanFragment extends Fragment {
     }
 
     private void updateData() {
+        // Lấy ID người dùng hiện tại
+        long currentUserId = MyApp.getCurrentUserId(); // Thay MyApp bằng lớp quản lý người dùng của bạn
+
         // Lấy dữ liệu từ cơ sở dữ liệu và cập nhật giao diện người dùng
-        Cursor cursor = dbHelper.getProfileData();
+        Cursor cursor = dbHelper.getProfileData(currentUserId);
         if (cursor != null && cursor.moveToFirst()) {
-            // Lấy thông tin chiều cao và cân nặng từ Cursor
+            // Lấy thông tin từ Cursor
             int nameIndex = cursor.getColumnIndex(DBHelper.COLUMN_NAME);
             String name = cursor.getString(nameIndex);
 
             int heightIndex = cursor.getColumnIndex(DBHelper.COLUMN_HEIGHT);
+            double height = cursor.getDouble(heightIndex);
+
             int weightIndex = cursor.getColumnIndex(DBHelper.COLUMN_WEIGHT);
-            int height = cursor.getInt(heightIndex);
-            int weight = cursor.getInt(weightIndex);
+            double weight = cursor.getDouble(weightIndex);
+
+            // Tính toán BMI từ chiều cao và cân nặng
             double bmi = Caculator.calculateBMI(weight, height);
 
-            // Đặt thông tin vào TextView
-            textHeight.setText(height + " cm");
-            textWeight.setText(weight + " kg");
+            // Hiển thị thông tin trên giao diện người dùng
+            textHeight.setText(String.format("%.1f", height) + " cm");
+            textWeight.setText(String.format("%.1f", weight) + " kg");
             textBMI.setText(String.format("%.1f", bmi));
 
             // Đóng Cursor sau khi sử dụng
             cursor.close();
         }
+
         // Tính và hiển thị lượng nước cần uống
         int waterIntake = calculateWaterIntake();
         textWaterOfDay.setText(String.valueOf(waterIntake + " ml"));
     }
 
+
     private int calculateWaterIntake() {
-        // Assume the average water intake per kg of body weight
+        // Giả định lượng nước trung bình cần uống mỗi kg cân nặng
         double averageWaterIntake = (30 + 35) / 2.0; // Lấy trung bình của 30 và 35 ml/kg
 
-        // Lấy trọng lượng từ cơ sở dữ liệu
-        Cursor cursor = dbHelper.getProfileData();
+        // Lấy trọng lượng từ cơ sở dữ liệu cho người dùng hiện tại
+        long currentUserId = MyApp.getCurrentUserId(); // Thay MyApp bằng lớp quản lý người dùng của bạn
+        Cursor cursor = dbHelper.getProfileData(currentUserId);
+
         if (cursor != null && cursor.moveToFirst()) {
+            // Lấy trọng lượng từ Cursor
             double weight = cursor.getDouble(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_WEIGHT));
             cursor.close();
-            // Tính lượng nước cần uống trong ngày dựa trên trọng lượng (kg)
+
+            // Tính và trả về lượng nước cần uống trong ngày dựa trên trọng lượng (kg)
             return (int) (weight * averageWaterIntake);
         }
+
         return 0;
     }
+
 }

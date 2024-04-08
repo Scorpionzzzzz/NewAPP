@@ -75,6 +75,17 @@ public class RegisterActivity extends AppCompatActivity {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_USERNAME, username);
         values.put(DBHelper.COLUMN_PASSWORD, password);
+        // Thêm các giá trị mặc định cho các trường dữ liệu khác
+        values.put(DBHelper.COLUMN_NAME, ""); // Tên mặc định là chuỗi trống
+        values.put(DBHelper.COLUMN_AGE, ""); // Tuổi mặc định là 0
+        values.put(DBHelper.COLUMN_HEIGHT, ""); // Chiều cao mặc định là 0.0
+        values.put(DBHelper.COLUMN_WEIGHT, ""); // Cân nặng mặc định là 0.0
+        values.put(DBHelper.COLUMN_CARBOHYDRATE_OF_DAY, ""); // Thực phẩm thực thụ mặc định là 0.0);
+        values.put(DBHelper.COLUMN_PROTEIN_OF_DAY, ""); // Thực phẩm thực thụ mặc định là 0.0);
+        values.put(DBHelper.COLUMN_FAT_OF_DAY, ""); // Thực phẩm thực thụ mặc định là 0.0);
+        values.put(DBHelper.COLUMN_TDEE, ""); // Thực phẩm thực thụ mặc định là 0.0);
+        values.put(DBHelper.COLUMN_USER_ID, username); // Thực phẩm thực thụ mặc định là 0.0);
+        // Thêm các trường dữ liệu khác nếu cần
 
         long newRowId = db.insert(DBHelper.TABLE_PROFILE, null, values);
 
@@ -83,6 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Error saving user", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 
     private void startLoginActivity() {
